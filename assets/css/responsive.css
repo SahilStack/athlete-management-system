@@ -1,0 +1,177 @@
+/* ============================================================
+   RESPONSIVE  –  Media Queries
+   Athlete Management System
+   Breakpoints: 1024px (tablet), 768px (mobile), 480px (small)
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────── 
+   TABLET  ≤ 1024px
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Dashboard section: stack vertically */
+  .dashboard-inner {
+    flex-direction: column !important;
+    gap: var(--sp-10) !important;
+  }
+
+  .dashboard-intro {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .dashboard-intro .section-tag,
+  .dashboard-intro .section-title,
+  .dashboard-intro .section-subtitle {
+    text-align: center;
+  }
+
+  .dashboard-intro .btn-group {
+    justify-content: center;
+  }
+
+}
+
+/* ─────────────────────────────────────────────────────────── 
+   MOBILE  ≤ 768px
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .section-pad {
+    padding-block: var(--sp-16);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .hero-sub {
+    font-size: var(--text-base);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    gap: var(--sp-6);
+    margin-top: var(--sp-10);
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    margin-bottom: var(--sp-10);
+  }
+
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-main-panel {
+    grid-column: auto;
+  }
+
+  .cta-section {
+    padding-block: var(--sp-16);
+  }
+
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+
+  .cta-trust {
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: var(--sp-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+/* ─────────────────────────────────────────────────────────── 
+   SMALL MOBILE  ≤ 480px
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  .container {
+    padding-inline: var(--sp-4);
+  }
+
+  .hero-content {
+    padding-inline: var(--sp-4);
+  }
+
+  .card {
+    padding: var(--sp-6);
+  }
+
+  .hero-stats {
+    gap: var(--sp-4);
+  }
+
+  .hero-stat-value {
+    font-size: var(--text-2xl);
+  }
+
+  .nav-logo-text {
+    font-size: var(--text-lg);
+  }
+
+}
+
+/* ─────────────────────────────────────────────────────────── 
+   REDUCED MOTION  – accessibility
+   ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

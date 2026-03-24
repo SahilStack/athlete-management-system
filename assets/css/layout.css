@@ -1,0 +1,88 @@
+/* ============================================================
+   LAYOUT  –  Container, Grid, Flex Helpers
+   Athlete Management System
+   ============================================================ */
+
+/* ── Container ───────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+.container-narrow {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+/* ── Section Padding ─────────────────────────────────────── */
+.section-pad {
+  padding-block: var(--sp-24);
+}
+
+.section-pad-sm {
+  padding-block: var(--sp-16);
+}
+
+/* ── Flex Helpers ────────────────────────────────────────── */
+.flex         { display: flex; }
+.flex-col     { flex-direction: column; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-start   { display: flex; align-items: flex-start; }
+.flex-wrap    { flex-wrap: wrap; }
+.gap-2        { gap: var(--sp-2); }
+.gap-3        { gap: var(--sp-3); }
+.gap-4        { gap: var(--sp-4); }
+.gap-6        { gap: var(--sp-6); }
+.gap-8        { gap: var(--sp-8); }
+.gap-12       { gap: var(--sp-12); }
+
+/* ── Grid Helpers ────────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+}
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-6);
+}
+
+/* ── Alignment Helpers ───────────────────────────────────── */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* ── Spacing Helpers ─────────────────────────────────────── */
+.mt-4  { margin-top: var(--sp-4); }
+.mt-6  { margin-top: var(--sp-6); }
+.mt-8  { margin-top: var(--sp-8); }
+.mt-12 { margin-top: var(--sp-12); }
+.mb-4  { margin-bottom: var(--sp-4); }
+.mb-6  { margin-bottom: var(--sp-6); }
+.mb-8  { margin-bottom: var(--sp-8); }
+
+/* ── Position ────────────────────────────────────────────── */
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+
+/* ── Colors ──────────────────────────────────────────────── */
+.bg-mid     { background-color: var(--clr-bg-mid); }
+.bg-surface { background-color: var(--clr-bg-surface); }

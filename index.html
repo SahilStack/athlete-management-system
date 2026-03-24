@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AthletiQ – The professional Athlete Management System for coaches and athletes. Track performance, manage training programs, and reach peak potential." />
+  <meta name="keywords" content="athlete management, sports performance, coaching platform, training tracker" />
+  <meta name="author" content="AthletiQ Team" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AthletiQ – Athlete Management System" />
+  <meta property="og:description" content="Track performance, manage training programs, and reach peak potential." />
+  <meta property="og:type" content="website" />
+
+  <title>AthletiQ – Athlete Management System</title>
+
+  <!-- Favicon (emoji fallback) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- CSS: Design Tokens → Base → Components → Layout → Page → Responsive -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ====================================================
+       NAVBAR
+       ==================================================== -->
+  <header id="navbar" class="navbar" role="banner">
+    <div class="container">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="AthletiQ Home">
+        <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+        <span class="nav-logo-text">Athleti<span>Q</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#features"   class="nav-link">Features</a>
+        <a href="#dashboard"  class="nav-link">Dashboard</a>
+        <a href="#pricing"    class="nav-link">Pricing</a>
+        <a href="#about"      class="nav-link">About</a>
+      </nav>
+
+      <!-- Desktop Auth Buttons -->
+      <div class="nav-actions">
+        <a href="pages/login.html"    class="btn btn-outline btn-sm">Log In</a>
+        <a href="pages/register.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="hamburger"
+        class="nav-hamburger"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div><!-- /.container -->
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <nav id="mobileMenu" class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+    <a href="#features"   class="nav-link">Features</a>
+    <a href="#dashboard"  class="nav-link">Dashboard</a>
+    <a href="#pricing"    class="nav-link">Pricing</a>
+    <a href="#about"      class="nav-link">About</a>
+    <div style="display:flex;gap:var(--sp-3);margin-top:var(--sp-2);">
+      <a href="pages/login.html"    class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">Log In</a>
+      <a href="pages/register.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Get Started</a>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- ====================================================
+         HERO SECTION
+         ==================================================== -->
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+
+      <!-- Decorative background grid -->
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <!-- Glow orbs -->
+      <div class="glow-orb orb-blue  hero-orb-1" aria-hidden="true"></div>
+      <div class="glow-orb orb-purple hero-orb-2" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <!-- Pre-title badge -->
+        <div class="hero-badge fade-up" aria-label="Trusted by professionals">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Now in Open Beta · 1,200+ Athletes Onboard
+        </div>
+
+        <!-- Main Headline -->
+        <h1 id="hero-heading" class="hero-title fade-up delay-1">
+          The Ultimate Platform to
+          <span class="hero-title-line2" id="typewriter-target" aria-live="polite">Track Your Performance</span><span class="typewriter-cursor" aria-hidden="true"></span>
+        </h1>
+
+        <!-- Sub-text -->
+        <p class="hero-sub fade-up delay-2">
+          AthletiQ unifies athlete data, training programs, and coach insights in one
+          beautifully designed workspace — so you can focus on winning.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-cta fade-up delay-3">
+          <a href="pages/register.html" class="btn btn-primary btn-lg">
+            🚀 Get Started Free
+          </a>
+          <a href="#dashboard" class="btn btn-outline btn-lg">
+            View Dashboard Demo
+          </a>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats fade-up delay-4" aria-label="Platform statistics">
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="1200" data-suffix="+" aria-label="1200+ Athletes">0+</div>
+            <div class="hero-stat-label">Athletes</div>
+          </div>
+          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="340" data-suffix="+" aria-label="340+ Coaches">0+</div>
+            <div class="hero-stat-label">Coaches</div>
+          </div>
+          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="98" data-suffix="%" aria-label="98% Satisfaction">0%</div>
+            <div class="hero-stat-label">Satisfaction</div>
+          </div>
+          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="50" data-suffix="K+" aria-label="50K+ Workouts logged">0+</div>
+            <div class="hero-stat-label">Workouts Logged</div>
+          </div>
+        </div>
+
+      </div><!-- /.hero-content -->
+
+      <!-- Scroll hint -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-indicator-line"></div>
+      </div>
+
+    </section><!-- /.hero -->
+
+
+    <!-- ====================================================
+         FEATURES SECTION
+         ==================================================== -->
+    <section id="features" class="features section-pad" aria-labelledby="features-heading">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header fade-up">
+          <p class="section-tag">⚙️ Features</p>
+          <h2 id="features-heading" class="section-title">
+            Everything a Coach and<br>
+            <span class="text-gradient">Athlete Needs</span>
+          </h2>
+          <p class="section-subtitle">
+            From performance tracking to AI-powered insights — AthletiQ gives you the
+            complete toolkit to dominate your sport.
+          </p>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="features-grid">
+
+          <!-- Card 1 -->
+          <article class="card fade-up delay-1">
+            <div class="icon-circle icon-circle-blue" aria-hidden="true">📊</div>
+            <h3 class="feature-card-title">Performance Analytics</h3>
+            <p class="feature-card-desc">
+              Visualize every rep, sprint, and session with interactive charts.
+              Spot trends and make data-backed decisions to peak at the right time.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card fade-up delay-2">
+            <div class="icon-circle icon-circle-gold" aria-hidden="true">🏋️</div>
+            <h3 class="feature-card-title">Training Program Builder</h3>
+            <p class="feature-card-desc">
+              Build and assign periodized training plans with drag-and-drop simplicity.
+              Customize load, volume, and intensity per athlete in seconds.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card fade-up delay-3">
+            <div class="icon-circle icon-circle-green" aria-hidden="true">🩺</div>
+            <h3 class="feature-card-title">Injury & Recovery Tracker</h3>
+            <p class="feature-card-desc">
+              Log and monitor injuries with recovery timelines. Get notified before
+              an athlete's workload puts them at risk — keeping them healthy longer.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card fade-up delay-4">
+            <div class="icon-circle icon-circle-purple" aria-hidden="true">💬</div>
+            <h3 class="feature-card-title">Coach–Athlete Messaging</h3>
+            <p class="feature-card-desc">
+              Communicate in real time. Share video clips, feedback, and motivational
+              notes directly inside the platform — no more scattered WhatsApp threads.
+            </p>
+          </article>
+
+        </div><!-- /.features-grid -->
+
+      </div><!-- /.container -->
+    </section><!-- /.features -->
+
+
+    <!-- ====================================================
+         DASHBOARD PREVIEW SECTION
+         ==================================================== -->
+    <section id="dashboard" class="dashboard-section section-pad" aria-labelledby="dashboard-heading">
+      <div class="container">
+
+        <div class="dashboard-inner flex gap-12" style="align-items:center;">
+
+          <!-- Left: Text -->
+          <div class="dashboard-intro fade-up">
+            <p class="section-tag">🖥️ Dashboard Preview</p>
+            <h2 id="dashboard-heading" class="section-title">
+              A Command Center<br>for <span class="text-gradient">Peak Performance</span>
+            </h2>
+            <p class="section-subtitle" style="max-width:100%;">
+              The athlete dashboard surfaces the metrics that matter — readiness scores,
+              training loads, session logs, and goal progress — all in one clean view.
+            </p>
+
+            <div class="btn-group flex gap-4 mt-8">
+              <a href="pages/register.html" class="btn btn-primary">Explore Dashboard</a>
+              <a href="#cta" class="btn btn-outline">See Pricing</a>
+            </div>
+          </div>
+
+          <!-- Right: Mock Dashboard UI -->
+          <div class="dashboard-visual-wrapper fade-up delay-2" style="flex:1.2;">
+
+            <!-- Top Stats Row -->
+            <div class="dashboard-grid-layout">
+
+              <div class="stat-card fade-up delay-1">
+                <div class="stat-card-label">Readiness Score</div>
+                <div class="stat-card-value" data-count="87" data-suffix="">0</div>
+                <div class="progress-track" style="margin-top:var(--sp-3);">
+                  <div class="progress-fill" data-width="87%" style="--bar-h:87%;background:var(--grad-blue);"></div>
+                </div>
+                <span class="stat-card-change up">▲ +4 vs yesterday</span>
+              </div>
+
+              <div class="stat-card fade-up delay-2">
+                <div class="stat-card-label">Weekly Load (TSS)</div>
+                <div class="stat-card-value" data-count="512" data-suffix="">0</div>
+                <div class="progress-track" style="margin-top:var(--sp-3);">
+                  <div class="progress-fill" data-width="72%" style="background:linear-gradient(135deg,#f59e0b,#ef4444);"></div>
+                </div>
+                <span class="stat-card-change down">▼ -18 vs last week</span>
+              </div>
+
+              <!-- Athlete List Panel -->
+              <div class="dashboard-main-panel fade-up delay-3">
+                <div class="panel-header">
+                  <div class="panel-title">Active Athletes</div>
+                  <span class="badge badge-green badge-dot">Live</span>
+                </div>
+
+                <!-- Athlete rows -->
+                <div class="athlete-row">
+                  <div class="avatar" aria-label="Athlete RK">RK</div>
+                  <div class="athlete-info">
+                    <div class="athlete-name">Rahul Kumar</div>
+                    <div class="athlete-sport">Sprint · Track &amp; Field</div>
+                    <div class="progress-track">
+                      <div class="progress-fill" data-width="92%" style="width:0%;"></div>
+                    </div>
+                  </div>
+                  <span class="athlete-score">92%</span>
+                </div>
+
+                <div class="athlete-row">
+                  <div class="avatar" style="background:var(--grad-gold);">PS</div>
+                  <div class="athlete-info">
+                    <div class="athlete-name">Priya Sharma</div>
+                    <div class="athlete-sport">Swimmer · Freestyle</div>
+                    <div class="progress-track">
+                      <div class="progress-fill" data-width="78%"  style="width:0%;background:var(--grad-gold);"></div>
+                    </div>
+                  </div>
+                  <span class="athlete-score">78%</span>
+                </div>
+
+                <div class="athlete-row">
+                  <div class="avatar" style="background:linear-gradient(135deg,#10b981,#059669);">AV</div>
+                  <div class="athlete-info">
+                    <div class="athlete-name">Arjun Verma</div>
+                    <div class="athlete-sport">Cyclist · Road Race</div>
+                    <div class="progress-track">
+                      <div class="progress-fill" data-width="85%" style="width:0%;background:linear-gradient(135deg,#10b981,#059669);"></div>
+                    </div>
+                  </div>
+                  <span class="athlete-score">85%</span>
+                </div>
+
+                <!-- Mini Bar Chart -->
+                <div class="panel-title" style="margin-top:var(--sp-6);margin-bottom:var(--sp-2);">Weekly Training Load</div>
+                <div class="mini-chart" aria-label="Bar chart of weekly training load">
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:55%; height:55%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:72%; height:72%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:48%; height:48%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:90%; height:90%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:68%; height:68%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:80%; height:80%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:60%; height:60%;cursor:pointer;"></div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:var(--sp-2);">
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Mon</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Tue</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Wed</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Thu</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Fri</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Sat</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-primary-light);">Sun</span>
+                </div>
+
+              </div><!-- /.dashboard-main-panel -->
+
+            </div><!-- /.dashboard-grid-layout -->
+
+          </div><!-- /.dashboard-visual-wrapper -->
+
+        </div><!-- /.dashboard-inner -->
+
+      </div><!-- /.container -->
+    </section><!-- /.dashboard-section -->
+
+
+    <!-- ====================================================
+         CTA SECTION
+         ==================================================== -->
+    <section id="cta" class="cta-section section-pad" aria-labelledby="cta-heading">
+      <div class="container">
+
+        <div class="fade-up">
+          <p class="section-tag" style="display:block;text-align:center;">🎯 Ready to Dominate?</p>
+          <h2 id="cta-heading" class="cta-title">
+            Start Your Journey<br>
+            <span class="text-gradient">for Free Today</span>
+          </h2>
+          <p class="cta-sub">
+            Join over 1,200 athletes and coaches who are already training smarter with AthletiQ.
+            No credit card required. Cancel anytime.
+          </p>
+
+          <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap;">
+            <a href="pages/register.html" class="btn btn-primary btn-lg">
+              🚀 Create Free Account
+            </a>
+            <a href="pages/login.html" class="btn btn-outline btn-lg">
+              Already a member? Log In
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="cta-trust">
+            <div class="cta-trust-item">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              Free 30-day trial
+            </div>
+            <div class="cta-trust-item">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              No credit card required
+            </div>
+            <div class="cta-trust-item">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              Cancel anytime
+            </div>
+            <div class="cta-trust-item">
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              GDPR compliant
+            </div>
+          </div>
+
+        </div><!-- /.fade-up -->
+
+      </div><!-- /.container -->
+    </section><!-- /.cta-section -->
+
+  </main>
+
+
+  <!-- ====================================================
+       FOOTER
+       ==================================================== -->
+  <footer id="about" class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" aria-label="AthletiQ Home">
+            <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+            <span class="nav-logo-text">Athleti<span>Q</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            The professional athlete management platform built for coaches and athletes
+            who take performance seriously.
+          </p>
+        </div>
+
+        <!-- Product Links -->
+        <div>
+          <p class=" footer-nav-group-title">Product</p>
+          <ul class="footer-nav-list">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="pages/register.html">Get Started</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Links -->
+        <div>
+          <p class="footer-nav-group-title">Resources</p>
+          <ul class="footer-nav-list">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div>
+          <p class="footer-nav-group-title">Company</p>
+          <ul class="footer-nav-list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /.footer-top -->
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; 2026 AthletiQ. All rights reserved. Built with ⚡ for champions.
+        </p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer-social-link" aria-label="Instagram">📸</a>
+          <a href="#" class="footer-social-link" aria-label="GitHub">⌨</a>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  </footer>
+
+
+  <!-- ====================================================
+       SCRIPTS
+       ==================================================== -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/home.js" defer></script>
+
+</body>
+</html>
