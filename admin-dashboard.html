@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — AthleteMS</title>
+  <meta name="description" content="Admin control panel — manage users, coaches, analytics, audit logs and site settings." />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dash-wrapper">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="sidebar-logo">
+      <div class="sidebar-logo-icon" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">🛠️</div>
+      <div class="sidebar-logo-text">
+        AthleteMS
+        <span>Admin Panel</span>
+      </div>
+    </a>
+
+    <nav class="sidebar-nav" aria-label="Admin navigation">
+      <p class="sidebar-section-label">Dashboard</p>
+      <a href="#" class="sidebar-link active" data-page="overview">
+        <span class="nav-icon">🏠</span> Overview
+      </a>
+      <a href="#" class="sidebar-link" data-page="analytics">
+        <span class="nav-icon">📊</span> Analytics
+      </a>
+
+      <p class="sidebar-section-label">Management</p>
+      <a href="#" class="sidebar-link" data-page="users">
+        <span class="nav-icon">👥</span> User Management
+        <span class="nav-badge">24</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="coaches">
+        <span class="nav-icon">🧑‍🏫</span> Coach Management
+        <span class="nav-badge">6</span>
+      </a>
+
+      <p class="sidebar-section-label">System</p>
+      <a href="#" class="sidebar-link" data-page="moderation">
+        <span class="nav-icon">🛡️</span> Moderation
+        <span class="nav-badge danger">3</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="audit">
+        <span class="nav-icon">📜</span> Audit Logs
+      </a>
+      <a href="#" class="sidebar-link" data-page="settings">
+        <span class="nav-icon">⚙️</span> Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Administrator</div>
+        </div>
+        <span style="color:var(--clr-text-muted);font-size:0.9rem;">⚙️</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ──────────────────────────────────────────────── -->
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <button class="topbar-menu-btn" id="menuToggle" aria-label="Toggle sidebar">☰</button>
+      <h1 class="topbar-title" id="topbarTitle">Overview</h1>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search users, logs…" aria-label="Search" />
+      </div>
+      <div class="topbar-actions">
+        <button class="topbar-icon-btn" aria-label="Alerts">🔔<span class="notif-dot"></span></button>
+        <div class="topbar-profile" role="button" tabindex="0">
+          <div class="avatar" style="width:28px;height:28px;font-size:0.7rem;background:linear-gradient(135deg,#8b5cf6,#ec4899);">AD</div>
+          <span class="topbar-profile-name">Admin User</span>
+          <span style="color:var(--clr-text-muted);font-size:0.75rem;">▾</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-content">
+
+      <!-- ════════════════════════════ OVERVIEW ════════════════════════ -->
+      <section class="dash-page active" id="page-overview">
+
+        <!-- Admin hero banner -->
+        <div class="dash-panel" style="background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.06));border-color:rgba(139,92,246,0.2);">
+          <div class="flex gap-6" style="align-items:center;flex-wrap:wrap;">
+            <div class="avatar" style="width:64px;height:64px;font-size:1.5rem;background:linear-gradient(135deg,#8b5cf6,#ec4899);flex-shrink:0;">🛠️</div>
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:var(--fw-extrabold);color:var(--clr-text-primary);letter-spacing:-0.02em;">Platform Overview</div>
+              <div style="color:var(--clr-text-secondary);font-size:var(--text-sm);margin-top:4px;">AthleteMS Administration · Last sync: <span style="color:var(--clr-success);">Just now</span></div>
+            </div>
+            <div class="flex gap-6">
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-primary-light);">247</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Total Users</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-accent-light);">18</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Coaches</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-danger);">3</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Flags</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat widgets -->
+        <div class="stat-grid">
+          <div class="stat-widget">
+            <div class="stat-widget-icon blue">👥</div>
+            <div class="stat-widget-label">Total Users</div>
+            <div class="stat-widget-value">247</div>
+            <span class="stat-widget-change up">↑ +12 this month</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon purple">🧑‍🏫</div>
+            <div class="stat-widget-label">Coaches</div>
+            <div class="stat-widget-value">18</div>
+            <span class="stat-widget-change up">↑ +2 this month</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon green">📅</div>
+            <div class="stat-widget-label">Sessions Today</div>
+            <div class="stat-widget-value">43</div>
+            <span class="stat-widget-change up">↑ +8 vs yesterday</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon gold">💰</div>
+            <div class="stat-widget-label">Monthly Revenue</div>
+            <div class="stat-widget-value">$9.4K</div>
+            <span class="stat-widget-change up">↑ +18% vs last month</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon red">🛡️</div>
+            <div class="stat-widget-label">Flagged Content</div>
+            <div class="stat-widget-value">3</div>
+            <span class="stat-widget-change down">↓ Needs review</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon green">📈</div>
+            <div class="stat-widget-label">Avg Performance</div>
+            <div class="stat-widget-value">84.2</div>
+            <span class="stat-widget-change up">↑ +2.4 this month</span>
+          </div>
+        </div>
+
+        <!-- Two-column: Recent users + Audit tail -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);">
+          <!-- Recent new users -->
+          <div class="dash-panel">
+            <div class="dash-section-header">
+              <div class="dash-section-title">New Registrations</div>
+              <a href="#" class="btn btn-sm btn-outline" data-page-link="users">View All</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+              <div class="flex gap-3" style="align-items:center;">
+                <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#6366f1);">NP</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Nathan Park</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Athlete · Basketball · 2 min ago</div>
+                </div>
+                <span class="badge badge-blue">New</span>
+              </div>
+              <div class="flex gap-3" style="align-items:center;">
+                <div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">CL</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Coach Lisa Wang</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Coach · Athletics · 1 hr ago</div>
+                </div>
+                <span class="badge badge-gold">Coach</span>
+              </div>
+              <div class="flex gap-3" style="align-items:center;">
+                <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">SK</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Sara Kovacs</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Athlete · Swimming · 3 hr ago</div>
+                </div>
+                <span class="badge badge-blue">New</span>
+              </div>
+              <div class="flex gap-3" style="align-items:center;">
+                <div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#6366f1);">OB</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Omar Bakr</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Athlete · Football · Yesterday</div>
+                </div>
+                <span class="badge badge-blue">New</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent audit events -->
+          <div class="dash-panel">
+            <div class="dash-section-header">
+              <div class="dash-section-title">Recent Audit Events</div>
+              <a href="#" class="btn btn-sm btn-outline" data-page-link="audit">View All</a>
+            </div>
+            <div class="activity-feed">
+              <div class="activity-item">
+                <div class="activity-dot red"></div>
+                <div class="activity-body">
+                  <div class="activity-text">User <strong>omar.bakr</strong> account suspended by admin</div>
+                  <div class="activity-time">Today, 11:42 AM</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot green"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Coach <strong>Lisa Wang</strong> account approved and activated</div>
+                  <div class="activity-time">Today, 9:10 AM</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot blue"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Site settings updated: <strong>max session duration → 60 min</strong></div>
+                  <div class="activity-time">Yesterday, 4:00 PM</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-dot gold"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Achievement <strong>"Regional Gold"</strong> flagged for manual review</div>
+                  <div class="activity-time">Yesterday, 2:30 PM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ════════════════════════════ ANALYTICS ════════════════════════ -->
+      <section class="dash-page" id="page-analytics">
+        <div>
+          <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Platform Analytics</div>
+          <div class="dash-section-sub" style="margin-bottom:var(--sp-6);">Platform-wide insights · Q1 2026</div>
+        </div>
+
+        <!-- KPI cards -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--sp-5);">
+          <div class="stat-widget">
+            <div class="stat-widget-icon blue">👤</div>
+            <div class="stat-widget-label">New Users (Month)</div>
+            <div class="stat-widget-value">+47</div>
+            <span class="stat-widget-change up">↑ +22% vs Feb</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon green">📅</div>
+            <div class="stat-widget-label">Sessions (Month)</div>
+            <div class="stat-widget-value">1,284</div>
+            <span class="stat-widget-change up">↑ +11%</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon gold">💰</div>
+            <div class="stat-widget-label">Revenue (Month)</div>
+            <div class="stat-widget-value">$9,408</div>
+            <span class="stat-widget-change up">↑ +18%</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon purple">⏱️</div>
+            <div class="stat-widget-label">Avg Session (min)</div>
+            <div class="stat-widget-value">74</div>
+            <span class="stat-widget-change up">↑ +4 min</span>
+          </div>
+        </div>
+
+        <!-- Growth table -->
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">Monthly Growth — Q1 2026</div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>New Users</th>
+                  <th>Active Users</th>
+                  <th>Sessions</th>
+                  <th>Revenue</th>
+                  <th>Growth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--clr-text-primary);">January</strong></td>
+                  <td>31</td><td>189</td><td>986</td><td>$7,623</td>
+                  <td><span class="stat-widget-change up">↑ Baseline</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--clr-text-primary);">February</strong></td>
+                  <td>38</td><td>210</td><td>1,157</td><td>$7,980</td>
+                  <td><span class="stat-widget-change up">↑ +17%</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--clr-text-primary);">March</strong></td>
+                  <td>47</td><td>247</td><td>1,284</td><td>$9,408</td>
+                  <td><span class="stat-widget-change up">↑ +18%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Subscription breakdown -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);">
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">Plan Distribution</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Pro Athlete</span><strong style="color:var(--clr-text-primary);">112 users · 45%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:45%;"></div></div>
+              </div>
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Standard</span><strong style="color:var(--clr-text-primary);">98 users · 40%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:40%;background:linear-gradient(90deg,#10b981,#06b6d4);"></div></div>
+              </div>
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Free Trial</span><strong style="color:var(--clr-text-primary);">37 users · 15%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:15%;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">Sport Distribution</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Swimming</span><strong style="color:var(--clr-text-primary);">89 athletes · 36%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:36%;"></div></div>
+              </div>
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Athletics</span><strong style="color:var(--clr-text-primary);">67 athletes · 27%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:27%;background:linear-gradient(90deg,#8b5cf6,#6366f1);"></div></div>
+              </div>
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Basketball</span><strong style="color:var(--clr-text-primary);">54 athletes · 22%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:22%;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div></div>
+              </div>
+              <div>
+                <div class="flex-between" style="font-size:var(--text-sm);margin-bottom:var(--sp-2);"><span style="color:var(--clr-text-secondary);">Other</span><strong style="color:var(--clr-text-primary);">37 athletes · 15%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:15%;background:linear-gradient(90deg,#10b981,#06b6d4);"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ USER MANAGEMENT ════════════════ -->
+      <section class="dash-page" id="page-users">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">User Management</div>
+            <div class="dash-section-sub">247 total users · Athletes & Coaches</div>
+          </div>
+          <div class="flex gap-3">
+            <button class="btn btn-outline btn-sm">Export CSV</button>
+            <button class="btn btn-primary btn-sm">+ Add User</button>
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="dash-panel" style="padding:var(--sp-4) var(--sp-6);">
+          <div class="flex gap-4" style="flex-wrap:wrap;align-items:center;">
+            <div class="topbar-search" style="margin-left:0;max-width:260px;flex:1;">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Search by name or email…" />
+            </div>
+            <select class="form-input" style="max-width:160px;padding:0.4rem 0.75rem;font-size:var(--text-sm);">
+              <option>All Roles</option>
+              <option>Athlete</option>
+              <option>Coach</option>
+            </select>
+            <select class="form-input" style="max-width:160px;padding:0.4rem 0.75rem;font-size:var(--text-sm);">
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Suspended</option>
+              <option>Pending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="dash-panel" style="padding:0;overflow:hidden;">
+          <div class="dash-table-wrap" style="border:none;border-radius:0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Role</th>
+                  <th>Sport</th>
+                  <th>Plan</th>
+                  <th>Joined</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">JR</div><div><div class="table-user-name">Jordan Riley</div><div class="table-user-sub">jordan@example.com</div></div></div></td>
+                  <td><span class="badge badge-blue">Athlete</span></td><td>Swimming</td><td><span class="badge badge-gold">Pro</span></td>
+                  <td>Jan 10, 2026</td><td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td>
+                    <div class="flex gap-2">
+                      <button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button>
+                      <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')" title="Toggle active">
+                        <div class="toggle-track on"><div class="toggle-thumb"></div></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:var(--grad-gold);">SM</div><div><div class="table-user-name">Sarah Mitchell</div><div class="table-user-sub">sarah@example.com</div></div></div></td>
+                  <td><span class="badge badge-gold">Coach</span></td><td>Swimming</td><td><span class="badge badge-blue">Coach</span></td>
+                  <td>Dec 5, 2025</td><td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td>
+                    <div class="flex gap-2">
+                      <button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button>
+                      <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')">
+                        <div class="toggle-track on"><div class="toggle-thumb"></div></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">AT</div><div><div class="table-user-name">Alex Torres</div><div class="table-user-sub">alex@example.com</div></div></div></td>
+                  <td><span class="badge badge-blue">Athlete</span></td><td>Swimming</td><td><span class="badge badge-blue">Standard</span></td>
+                  <td>Jan 22, 2026</td><td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td>
+                    <div class="flex gap-2">
+                      <button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button>
+                      <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')">
+                        <div class="toggle-track on"><div class="toggle-thumb"></div></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#ef4444,#f59e0b);">OB</div><div><div class="table-user-name">Omar Bakr</div><div class="table-user-sub">omar@example.com</div></div></div></td>
+                  <td><span class="badge badge-blue">Athlete</span></td><td>Football</td><td><span class="badge badge-blue">Standard</span></td>
+                  <td>Mar 18, 2026</td>
+                  <td><span class="badge" style="background:rgba(239,68,68,0.15);color:var(--clr-danger);">Suspended</span></td>
+                  <td>
+                    <div class="flex gap-2">
+                      <button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button>
+                      <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on');this.querySelector('.toggle-track').classList.toggle('danger')">
+                        <div class="toggle-track danger"><div class="toggle-thumb"></div></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">NP</div><div><div class="table-user-name">Nathan Park</div><div class="table-user-sub">nathan@example.com</div></div></div></td>
+                  <td><span class="badge badge-blue">Athlete</span></td><td>Basketball</td><td>Free Trial</td>
+                  <td>Mar 25, 2026</td>
+                  <td><span class="badge" style="background:rgba(245,158,11,0.15);color:var(--clr-accent-light);">Pending</span></td>
+                  <td>
+                    <div class="flex gap-2">
+                      <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.3rem 0.7rem;font-size:var(--text-xs);">Activate</button>
+                      <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')">
+                        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ COACH MANAGEMENT ════════════════ -->
+      <section class="dash-page" id="page-coaches">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Coach Management</div>
+            <div class="dash-section-sub">18 coaches · Manage profiles and athlete assignments</div>
+          </div>
+          <button class="btn btn-primary btn-sm">+ Add Coach</button>
+        </div>
+
+        <div class="dash-panel" style="padding:0;overflow:hidden;">
+          <div class="dash-table-wrap" style="border:none;border-radius:0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Coach</th>
+                  <th>Specialty</th>
+                  <th>Athletes</th>
+                  <th>Programs</th>
+                  <th>Rating</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:var(--grad-gold);">SM</div><div><div class="table-user-name">Sarah Mitchell</div><div class="table-user-sub">sarah@example.com</div></div></div></td>
+                  <td>Swimming</td><td>8</td><td>5</td>
+                  <td><span style="color:var(--clr-accent-light);">★</span> 4.9</td>
+                  <td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td><div class="flex gap-2"><button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button><button class="btn btn-sm" style="background:rgba(59,130,246,0.1);color:var(--clr-primary-light);border:1px solid rgba(59,130,246,0.2);padding:0.3rem 0.6rem;font-size:var(--text-xs);">View</button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">LW</div><div><div class="table-user-name">Lisa Wang</div><div class="table-user-sub">lisa@example.com</div></div></div></td>
+                  <td>Athletics</td><td>6</td><td>3</td>
+                  <td><span style="color:var(--clr-accent-light);">★</span> 4.7</td>
+                  <td><span class="badge badge-gold">New</span></td>
+                  <td><div class="flex gap-2"><button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button><button class="btn btn-sm" style="background:rgba(59,130,246,0.1);color:var(--clr-primary-light);border:1px solid rgba(59,130,246,0.2);padding:0.3rem 0.6rem;font-size:var(--text-xs);">View</button></div></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">MP</div><div><div class="table-user-name">Mike Porter</div><div class="table-user-sub">mike@example.com</div></div></div></td>
+                  <td>Basketball</td><td>10</td><td>4</td>
+                  <td><span style="color:var(--clr-accent-light);">★</span> 4.8</td>
+                  <td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td><div class="flex gap-2"><button class="btn btn-sm btn-outline" style="padding:0.3rem 0.6rem;">Edit</button><button class="btn btn-sm" style="background:rgba(59,130,246,0.1);color:var(--clr-primary-light);border:1px solid rgba(59,130,246,0.2);padding:0.3rem 0.6rem;font-size:var(--text-xs);">View</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ MODERATION ════════════════════════ -->
+      <section class="dash-page" id="page-moderation">
+        <div>
+          <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Content Moderation</div>
+          <div class="dash-section-sub" style="margin-bottom:var(--sp-6);">Review flagged content and reported items</div>
+        </div>
+
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+          <div class="stat-widget">
+            <div class="stat-widget-icon red">🚩</div>
+            <div class="stat-widget-label">Flagged Items</div>
+            <div class="stat-widget-value">3</div>
+            <span class="stat-widget-change down">↓ Immediate review</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon gold">⏳</div>
+            <div class="stat-widget-label">Reports (Week)</div>
+            <div class="stat-widget-value">7</div>
+            <span class="stat-widget-change down">↓ 4 pending</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon green">✅</div>
+            <div class="stat-widget-label">Resolved (Month)</div>
+            <div class="stat-widget-value">22</div>
+            <span class="stat-widget-change up">↑ +8 vs last</span>
+          </div>
+        </div>
+
+        <!-- Flagged items -->
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">🚩 Flagged Content</div>
+          <div class="achievement-list">
+            <div class="achievement-item" style="border-color:rgba(239,68,68,0.25);">
+              <div class="achievement-icon" style="background:rgba(239,68,68,0.15);">🏆</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Achievement Claim — "National Record" by Omar Bakr</div>
+                <div class="achievement-date">Flagged: Unverifiable claim · Mar 22, 2026 · Reported by Coach Mike Porter</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Clear</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Remove</button>
+              </div>
+            </div>
+            <div class="achievement-item" style="border-color:rgba(239,68,68,0.25);">
+              <div class="achievement-icon" style="background:rgba(239,68,68,0.15);">💬</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Message Report — Inappropriate language in group chat</div>
+                <div class="achievement-date">Flagged: Policy violation · Mar 20, 2026 · Reported by 2 users</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Clear</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Remove</button>
+              </div>
+            </div>
+            <div class="achievement-item" style="border-color:rgba(239,68,68,0.25);">
+              <div class="achievement-icon" style="background:rgba(239,68,68,0.15);">👤</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Profile — Suspected duplicate account</div>
+                <div class="achievement-date">Flagged: Duplicate check · Mar 18, 2026 · System auto-detected</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Clear</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ AUDIT LOGS ════════════════════════ -->
+      <section class="dash-page" id="page-audit">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Audit Logs</div>
+            <div class="dash-section-sub">All system and admin activity</div>
+          </div>
+          <button class="btn btn-outline btn-sm">Export Logs</button>
+        </div>
+
+        <!-- Filter -->
+        <div class="dash-panel" style="padding:var(--sp-4) var(--sp-6);">
+          <div class="flex gap-4" style="flex-wrap:wrap;align-items:center;">
+            <div class="topbar-search" style="margin-left:0;max-width:260px;flex:1;"><span class="search-icon">🔍</span><input type="text" placeholder="Search logs…" /></div>
+            <select class="form-input" style="max-width:180px;padding:0.4rem 0.75rem;font-size:var(--text-sm);">
+              <option>All Events</option>
+              <option>User Changes</option>
+              <option>Auth Events</option>
+              <option>Content Actions</option>
+              <option>Settings</option>
+            </select>
+            <input type="date" class="form-input" style="max-width:160px;padding:0.4rem 0.75rem;font-size:var(--text-sm);" value="2026-03-25" />
+          </div>
+        </div>
+
+        <div class="dash-panel" style="padding:0;overflow:hidden;">
+          <div class="dash-table-wrap" style="border:none;border-radius:0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Event</th>
+                  <th>Actor</th>
+                  <th>Target</th>
+                  <th>IP Address</th>
+                  <th>Severity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-25 11:42</td>
+                  <td><strong style="color:var(--clr-text-primary);">USER_SUSPENDED</strong></td>
+                  <td>Admin</td><td>omar.bakr</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">192.168.1.1</td>
+                  <td><span class="badge" style="background:rgba(239,68,68,0.15);color:var(--clr-danger);">High</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-25 09:10</td>
+                  <td><strong style="color:var(--clr-text-primary);">COACH_APPROVED</strong></td>
+                  <td>Admin</td><td>lisa.wang</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">192.168.1.1</td>
+                  <td><span class="badge badge-green">Low</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-24 16:00</td>
+                  <td><strong style="color:var(--clr-text-primary);">SETTINGS_UPDATED</strong></td>
+                  <td>Admin</td><td>Platform Config</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">192.168.1.1</td>
+                  <td><span class="badge badge-gold">Medium</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-24 14:30</td>
+                  <td><strong style="color:var(--clr-text-primary);">CONTENT_FLAGGED</strong></td>
+                  <td>System</td><td>achievement #2391</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">—</td>
+                  <td><span class="badge gold" style="background:rgba(245,158,11,0.15);color:var(--clr-accent-light);">Medium</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-24 09:05</td>
+                  <td><strong style="color:var(--clr-text-primary);">USER_REGISTERED</strong></td>
+                  <td>System</td><td>nathan.park</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">203.0.113.42</td>
+                  <td><span class="badge badge-green">Low</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);">2026-03-23 18:15</td>
+                  <td><strong style="color:var(--clr-text-primary);">LOGIN_FAILED</strong></td>
+                  <td>Unknown</td><td>jordan@example.com</td>
+                  <td style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--clr-text-muted);">198.51.100.0</td>
+                  <td><span class="badge" style="background:rgba(239,68,68,0.15);color:var(--clr-danger);">High</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ SETTINGS ════════════════════════ -->
+      <section class="dash-page" id="page-settings">
+        <div>
+          <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Platform Settings</div>
+          <div class="dash-section-sub" style="margin-bottom:var(--sp-6);">Configure platform behavior, security and notifications</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);">
+
+          <!-- General settings -->
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">⚙️ General</div>
+            <form onsubmit="return false;" style="display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Platform Name</label>
+                <input type="text" class="form-input" value="AthleteMS" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Support Email</label>
+                <input type="email" class="form-input" value="support@athletems.com" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Max Athletes Per Coach</label>
+                <input type="number" class="form-input" value="15" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Default Session Duration (min)</label>
+                <input type="number" class="form-input" value="60" />
+              </div>
+              <button class="btn btn-primary btn-sm" style="align-self:flex-start;">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- Feature toggles -->
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">🔧 Feature Flags</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-5);">
+              <div class="flex-between">
+                <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">New User Registrations</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Allow public signups</div></div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--clr-border);" />
+              <div class="flex-between">
+                <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Achievement Approval Required</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Coach must approve before display</div></div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--clr-border);" />
+              <div class="flex-between">
+                <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Public Athlete Profiles</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Show profiles to non-members</div></div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track"><div class="toggle-thumb"></div></div></div>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--clr-border);" />
+              <div class="flex-between">
+                <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Maintenance Mode</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Take platform offline for updates</div></div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on');this.querySelector('.toggle-track').classList.toggle('danger')"><div class="toggle-track"><div class="toggle-thumb"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email notification settings -->
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">📧 Email Notifications</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div class="flex-between"><div style="font-size:var(--text-sm);color:var(--clr-text-secondary);">Welcome email on registration</div><div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div></div>
+              <div class="flex-between"><div style="font-size:var(--text-sm);color:var(--clr-text-secondary);">Achievement approved notification</div><div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div></div>
+              <div class="flex-between"><div style="font-size:var(--text-sm);color:var(--clr-text-secondary);">Session reminder (24h before)</div><div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div></div>
+              <div class="flex-between"><div style="font-size:var(--text-sm);color:var(--clr-text-secondary);">Billing renewal reminder</div><div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div></div>
+            </div>
+          </div>
+
+          <!-- Security settings -->
+          <div class="dash-panel">
+            <div class="dash-section-title" style="margin-bottom:var(--sp-5);">🔐 Security</div>
+            <form onsubmit="return false;" style="display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Session Timeout (minutes)</label>
+                <input type="number" class="form-input" value="30" />
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Max Login Attempts</label>
+                <input type="number" class="form-input" value="5" />
+              </div>
+              <div class="flex-between">
+                <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Force 2FA for Coaches</div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+              </div>
+              <div class="flex-between">
+                <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Force 2FA for Admins</div>
+                <div class="toggle-switch" onclick="this.querySelector('.toggle-track').classList.toggle('on')"><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+              </div>
+              <button class="btn btn-primary btn-sm" style="align-self:flex-start;">Save Security Settings</button>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Danger zone -->
+        <div class="dash-panel" style="border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.03);">
+          <div class="dash-section-title" style="color:var(--clr-danger);margin-bottom:var(--sp-4);">⚠️ Danger Zone</div>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-4);">
+            <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-3);">
+              <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Clear All Audit Logs</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Permanently delete all audit log entries</div></div>
+              <button class="btn btn-sm" style="background:transparent;color:var(--clr-danger);border:1px solid rgba(239,68,68,0.4);">Clear Logs</button>
+            </div>
+            <hr style="border:none;border-top:1px solid rgba(239,68,68,0.15);" />
+            <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-3);">
+              <div><div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Reset Platform to Defaults</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">This will reset all settings but not delete user data</div></div>
+              <button class="btn btn-sm" style="background:transparent;color:var(--clr-danger);border:1px solid rgba(239,68,68,0.4);">Reset Defaults</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script>
+'use strict';
+(function () {
+  const sidebar  = document.getElementById('dashSidebar');
+  const overlay  = document.getElementById('sidebarOverlay');
+  const menuBtn  = document.getElementById('menuToggle');
+  const topTitle = document.getElementById('topbarTitle');
+
+  function openSidebar()  { sidebar.classList.add('open');  overlay.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+  overlay.addEventListener('click', closeSidebar);
+
+  const navLinks = document.querySelectorAll('[data-page]');
+  const pages    = document.querySelectorAll('.dash-page');
+
+  function showPage(pageId) {
+    pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + pageId));
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.page === pageId));
+    const titleMap = {overview:'Platform Overview',analytics:'Analytics',users:'User Management',coaches:'Coach Management',moderation:'Moderation',audit:'Audit Logs',settings:'Settings'};
+    topTitle.textContent = titleMap[pageId] || 'Admin Dashboard';
+    closeSidebar();
+  }
+
+  navLinks.forEach(link => link.addEventListener('click', e => { e.preventDefault(); showPage(link.dataset.page); }));
+  document.querySelectorAll('[data-page-link]').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); showPage(btn.dataset.pageLink); }));
+})();
+</script>
+
+</body>
+</html>

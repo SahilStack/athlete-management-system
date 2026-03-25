@@ -47,6 +47,15 @@
     justify-content: center;
   }
 
+  /* Roles section: stack panel on tablet */
+  .role-panel-inner {
+    gap: var(--sp-10);
+  }
+
+  .role-panel-visual {
+    width: 280px;
+  }
+
 }
 
 /* ─────────────────────────────────────────────────────────── 
@@ -132,6 +141,30 @@
     text-align: center;
   }
 
+  /* Roles section: full-stack on mobile */
+  .roles-tabs {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .role-tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: var(--text-xs);
+  }
+
+  .role-panel-inner {
+    flex-direction: column;
+    gap: var(--sp-8);
+  }
+
+  .role-panel-visual {
+    display: none; /* hide visual card on small screens to save space */
+  }
+
+  .role-panel-desc {
+    max-width: 100%;
+  }
+
 }
 
 /* ─────────────────────────────────────────────────────────── 
@@ -161,6 +194,15 @@
 
   .nav-logo-text {
     font-size: var(--text-lg);
+  }
+
+  /* Hide stat separators on very small screens */
+  .hero-stat-sep {
+    display: none;
+  }
+
+  .hero-stats {
+    gap: var(--sp-5);
   }
 
 }

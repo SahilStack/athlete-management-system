@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your free AthletiQ account. Join as an Athlete or Coach and start training smarter today." />
+  <title>Sign Up – AthletiQ</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- CSS: Design Tokens → Base → Components → Layout → Responsive -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================
+       AUTH PAGE WRAPPER
+       ====================================================== -->
+  <div class="auth-page">
+
+    <!-- Decorative orbs -->
+    <div class="glow-orb orb-blue   auth-orb-1" aria-hidden="true"></div>
+    <div class="glow-orb orb-purple auth-orb-2" aria-hidden="true"></div>
+
+    <!-- Signup Card -->
+    <main class="auth-card" role="main" aria-labelledby="signup-heading" style="max-width:500px;">
+
+      <!-- Logo -->
+      <a href="index.html" class="auth-logo" aria-label="Back to AthletiQ homepage">
+        <div class="nav-logo-icon" aria-hidden="true">⚡</div>
+        <span class="nav-logo-text">Athleti<span>Q</span></span>
+      </a>
+
+      <!-- Heading -->
+      <h1 id="signup-heading" class="auth-title">Create your account</h1>
+      <p class="auth-sub">Join 1,200+ athletes and coaches already training smarter.</p>
+
+      <!-- Signup Form -->
+      <form id="signupForm" novalidate aria-label="Sign up form">
+
+        <!-- Role Selector -->
+        <div class="form-group">
+          <span class="form-label" id="role-label">I am a…</span>
+          <div class="role-selector" role="radiogroup" aria-labelledby="role-label">
+            <!-- Athlete -->
+            <div class="role-card athlete">
+              <input
+                type="radio"
+                name="role"
+                id="role-athlete"
+                value="athlete"
+                checked
+                aria-label="Athlete"
+              />
+              <label class="role-card-label" for="role-athlete">
+                <span class="role-card-icon" aria-hidden="true">🏃</span>
+                <span class="role-card-name">Athlete</span>
+                <span class="role-card-desc">Track performance &amp; train smarter</span>
+              </label>
+            </div>
+            <!-- Coach -->
+            <div class="role-card coach">
+              <input
+                type="radio"
+                name="role"
+                id="role-coach"
+                value="coach"
+                aria-label="Coach"
+              />
+              <label class="role-card-label" for="role-coach">
+                <span class="role-card-icon" aria-hidden="true">🧑‍🏫</span>
+                <span class="role-card-name">Coach</span>
+                <span class="role-card-desc">Manage athletes &amp; design programs</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="fullname">Full name</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            class="form-input"
+            placeholder="Rahul Kumar"
+            autocomplete="name"
+            required
+            aria-required="true"
+            aria-describedby="fullname-error"
+          />
+          <span id="fullname-error" class="form-error" role="alert" aria-live="polite">
+            ⚠ Please enter your full name.
+          </span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="email-error"
+          />
+          <span id="email-error" class="form-error" role="alert" aria-live="polite">
+            ⚠ Please enter a valid email address.
+          </span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="Choose a strong password"
+              autocomplete="new-password"
+              required
+              aria-required="true"
+              aria-describedby="password-error password-strength-label"
+            />
+            <button type="button" class="eye-btn" id="eyeToggle1" aria-label="Show password" aria-pressed="false">
+              <svg id="eyeOpen1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg id="eyeClosed1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <!-- Password strength -->
+          <div class="strength-bar-wrap" id="strengthWrap" aria-live="polite">
+            <div class="strength-track strength-0" id="strengthTrack">
+              <div class="strength-segment"></div>
+              <div class="strength-segment"></div>
+              <div class="strength-segment"></div>
+              <div class="strength-segment"></div>
+            </div>
+            <div class="strength-label" id="password-strength-label">Strength: <span id="strengthText">—</span></div>
+          </div>
+          <span id="password-error" class="form-error" role="alert" aria-live="polite">
+            ⚠ Password must be at least 8 characters.
+          </span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label" for="confirm-password">Confirm password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              class="form-input"
+              placeholder="Repeat your password"
+              autocomplete="new-password"
+              required
+              aria-required="true"
+              aria-describedby="confirm-error"
+            />
+            <button type="button" class="eye-btn" id="eyeToggle2" aria-label="Show password" aria-pressed="false">
+              <svg id="eyeOpen2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg id="eyeClosed2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <span id="confirm-error" class="form-error" role="alert" aria-live="polite">
+            ⚠ Passwords do not match.
+          </span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="signupBtn" class="btn btn-primary btn-block">
+          Create Account
+        </button>
+
+      </form>
+
+      <!-- Log in link -->
+      <p class="auth-link-row">
+        Already have an account? <a href="login.html">Log in</a>
+      </p>
+
+      <!-- Footer note -->
+      <p class="auth-footer-note">
+        By creating an account you agree to our
+        <a href="#" style="color:var(--clr-text-muted);">Terms of Service</a>
+        and <a href="#" style="color:var(--clr-text-muted);">Privacy Policy</a>.
+      </p>
+
+    </main><!-- /.auth-card -->
+
+  </div><!-- /.auth-page -->
+
+
+  <!-- ======================================================
+       SCRIPTS
+       ====================================================== -->
+  <script src="assets/js/main.js" defer></script>
+  <script>
+  'use strict';
+  (function initSignupForm() {
+    const form         = document.getElementById('signupForm');
+    const fullnameEl   = document.getElementById('fullname');
+    const emailEl      = document.getElementById('email');
+    const passwordEl   = document.getElementById('password');
+    const confirmEl    = document.getElementById('confirm-password');
+    const signupBtn    = document.getElementById('signupBtn');
+    const strengthWrap = document.getElementById('strengthWrap');
+    const strengthTrack= document.getElementById('strengthTrack');
+    const strengthText = document.getElementById('strengthText');
+    if (!form) return;
+
+    /* ── Helpers ── */
+    const setError = (el, errEl, show) => {
+      el.classList.toggle('error', show);
+      const errNode = document.getElementById(errEl);
+      if (errNode) errNode.classList.toggle('visible', show);
+    };
+    const isValidEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+
+    /* ── Eye toggles ── */
+    function makeEyeToggle(btnId, inputEl, openId, closedId) {
+      const btn    = document.getElementById(btnId);
+      const eyeO   = document.getElementById(openId);
+      const eyeC   = document.getElementById(closedId);
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const hidden = inputEl.type === 'password';
+        inputEl.type = hidden ? 'text' : 'password';
+        eyeO.style.display = hidden ? 'none' : '';
+        eyeC.style.display = hidden ? ''     : 'none';
+        btn.setAttribute('aria-label',   hidden ? 'Hide password' : 'Show password');
+        btn.setAttribute('aria-pressed',  hidden ? 'true'         : 'false');
+      });
+    }
+    makeEyeToggle('eyeToggle1', passwordEl, 'eyeOpen1', 'eyeClosed1');
+    makeEyeToggle('eyeToggle2', confirmEl,  'eyeOpen2', 'eyeClosed2');
+
+    /* ── Password strength ── */
+    const STRENGTH_LABELS = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+    function getStrength(pw) {
+      let score = 0;
+      if (pw.length >= 8)                   score++;
+      if (/[A-Z]/.test(pw))                 score++;
+      if (/[0-9]/.test(pw))                 score++;
+      if (/[^A-Za-z0-9]/.test(pw))          score++;
+      return score;
+    }
+
+    passwordEl.addEventListener('input', () => {
+      const pw = passwordEl.value;
+      if (!pw) {
+        strengthWrap.classList.remove('visible');
+        return;
+      }
+      strengthWrap.classList.add('visible');
+      const score = getStrength(pw);
+      // Remove previous strength classes
+      strengthTrack.className = 'strength-track strength-' + score;
+      strengthText.textContent = STRENGTH_LABELS[score] || '—';
+
+      // Also clear confirm error when password changes
+      if (confirmEl.value) {
+        setError(confirmEl, 'confirm-error', pw !== confirmEl.value);
+      }
+    });
+
+    /* ── Live validation on blur ── */
+    fullnameEl.addEventListener('blur', () => {
+      setError(fullnameEl, 'fullname-error', fullnameEl.value.trim() === '');
+    });
+    emailEl.addEventListener('blur', () => {
+      setError(emailEl, 'email-error', !isValidEmail(emailEl.value));
+    });
+    passwordEl.addEventListener('blur', () => {
+      setError(passwordEl, 'password-error', passwordEl.value.length < 8);
+    });
+    confirmEl.addEventListener('blur', () => {
+      setError(confirmEl, 'confirm-error', confirmEl.value !== passwordEl.value);
+    });
+
+    /* ── Clear errors on input ── */
+    fullnameEl.addEventListener('input', () => {
+      if (fullnameEl.value.trim()) setError(fullnameEl, 'fullname-error', false);
+    });
+    emailEl.addEventListener('input', () => {
+      if (isValidEmail(emailEl.value)) setError(emailEl, 'email-error', false);
+    });
+    confirmEl.addEventListener('input', () => {
+      if (confirmEl.value === passwordEl.value) setError(confirmEl, 'confirm-error', false);
+    });
+
+    /* ── Submit ── */
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameOk    = fullnameEl.value.trim() !== '';
+      const emailOk   = isValidEmail(emailEl.value);
+      const passOk    = passwordEl.value.length >= 8;
+      const confirmOk = confirmEl.value === passwordEl.value;
+
+      setError(fullnameEl, 'fullname-error', !nameOk);
+      setError(emailEl,    'email-error',    !emailOk);
+      setError(passwordEl, 'password-error', !passOk);
+      setError(confirmEl,  'confirm-error',  !confirmOk);
+
+      if (!nameOk || !emailOk || !passOk || !confirmOk) return;
+
+      /* Simulate loading */
+      signupBtn.classList.add('loading');
+      signupBtn.textContent = '';
+      setTimeout(() => {
+        signupBtn.classList.remove('loading');
+        signupBtn.textContent = 'Create Account';
+        /* In a real app, redirect or show success message here */
+        signupBtn.textContent = '✓ Account Created!';
+        signupBtn.style.background = 'var(--clr-success)';
+        signupBtn.style.boxShadow  = '0 8px 32px rgba(16,185,129,0.4)';
+        signupBtn.disabled = true;
+      }, 1800);
+    });
+  })();
+  </script>
+
+</body>
+</html>

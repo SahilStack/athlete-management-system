@@ -10,15 +10,35 @@
   if (!navbar) return;
 
   const onScroll = () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run on load
+  onScroll();
+})();
+
+/* ── Active nav-link highlighting on scroll ──────────────── */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
+
+  const navHeight = 80;
+
+  const setActive = () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - navHeight - 10) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+  };
+
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
 })();
 
 /* ── Hamburger / Mobile Menu ─────────────────────────────── */
@@ -27,28 +47,37 @@
   const mobileMenu = document.getElementById('mobileMenu');
   if (!hamburger || !mobileMenu) return;
 
+  const close = () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+
+  const open = () => {
+    hamburger.classList.add('open');
+    mobileMenu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+
   hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.classList.contains('open') ? close() : open();
   });
 
   // Close on link click
-  mobileMenu.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', close);
   });
 
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
+      close();
     }
+  });
+
+  // Close on Escape key — accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
   });
 })();
 
@@ -61,18 +90,38 @@
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const navHeight = parseInt(getComputedStyle(document.documentElement)
-        .getPropertyValue('--nav-height')) || 72;
+      const navHeight = 72;
       const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 })();
 
-/* ── IntersectionObserver: fade-up animations ────────────── */
+/* ── IntersectionObserver: fade-up animations ────────────── *
+ *  ROBUSTNESS: If IO is not supported, or browser paint is
+ *  instant (file:// protocol, fast devices), we apply a
+ *  DOMContentLoaded fallback that reveals all elements already
+ *  in the viewport immediately so nothing stays hidden.
+ * ─────────────────────────────────────────────────────────── */
 (function initFadeUp() {
   const elements = document.querySelectorAll('.fade-up');
   if (!elements.length) return;
+
+  // Fallback: reveal elements already in view on page load
+  const revealInView = () => {
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 20) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    // No IO support — reveal everything immediately
+    elements.forEach(el => el.classList.add('visible'));
+    return;
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -83,8 +132,17 @@
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    {
+      threshold: 0.08,             // Lower threshold — fires earlier
+      rootMargin: '0px 0px -20px 0px'  // Reduced negative margin
+    }
   );
 
   elements.forEach(el => observer.observe(el));
+
+  // Also run immediately in case elements start in view (e.g., hero)
+  revealInView();
+
+  // And once more after a short tick to handle layout-shift edge cases
+  requestAnimationFrame(() => requestAnimationFrame(revealInView));
 })();

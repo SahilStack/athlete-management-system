@@ -4,6 +4,40 @@
    ============================================================ */
 'use strict';
 
+/* ── Role Tabs (Athlete / Coach / Admin section) ─────────── */
+(function initRoleTabs() {
+  const tabBtns = document.querySelectorAll('.role-tab-btn');
+  const tabPanels = document.querySelectorAll('.role-tab-panel');
+  if (!tabBtns.length || !tabPanels.length) return;
+
+  const activate = (targetRole) => {
+    tabBtns.forEach(btn => {
+      const isActive = btn.dataset.role === targetRole;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive);
+    });
+    tabPanels.forEach(panel => {
+      const isActive = panel.dataset.role === targetRole;
+      panel.classList.toggle('active', isActive);
+      panel.setAttribute('aria-hidden', !isActive);
+    });
+  };
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => activate(btn.dataset.role));
+    btn.addEventListener('keydown', (e) => {
+      // Arrow key navigation between tabs
+      const tabs = [...tabBtns];
+      const idx  = tabs.indexOf(btn);
+      if (e.key === 'ArrowRight') { e.preventDefault(); tabs[(idx + 1) % tabs.length].click(); tabs[(idx + 1) % tabs.length].focus(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); tabs[(idx - 1 + tabs.length) % tabs.length].click(); tabs[(idx - 1 + tabs.length) % tabs.length].focus(); }
+    });
+  });
+
+  // Activate first tab by default
+  if (tabBtns[0]) activate(tabBtns[0].dataset.role);
+})();
+
 /* ── Typewriter Effect ───────────────────────────────────── */
 (function initTypewriter() {
   const target = document.getElementById('typewriter-target');
@@ -76,6 +110,11 @@
     requestAnimationFrame(step);
   };
 
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(animateCounter);
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -85,10 +124,18 @@
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.2, rootMargin: '0px 0px -10px 0px' }
   );
 
-  counters.forEach(el => observer.observe(el));
+  // Immediately fire for elements already on screen (e.g. hero stats)
+  counters.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      animateCounter(el);
+    } else {
+      observer.observe(el);
+    }
+  });
 })();
 
 /* ── Progress Bars (dashboard preview) ───────────────────── */
@@ -105,11 +152,12 @@
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.2, rootMargin: '0px 0px -10px 0px' }
   );
 
   bars.forEach(bar => {
     bar.style.width = '0%';
-    observer.observe(bar);
+    // Small delay so CSS transition has time to register width:0 first
+    requestAnimationFrame(() => observer.observe(bar));
   });
 })();

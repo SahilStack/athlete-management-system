@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Dashboard — AthleteMS</title>
+  <meta name="description" content="Coach portal — manage athletes, training programs, sessions and approvals." />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dash-wrapper">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="sidebar-logo">
+      <div class="sidebar-logo-icon" style="background:var(--grad-gold);">🧑‍🏫</div>
+      <div class="sidebar-logo-text">
+        AthleteMS
+        <span>Coach Portal</span>
+      </div>
+    </a>
+
+    <nav class="sidebar-nav" aria-label="Coach navigation">
+      <p class="sidebar-section-label">Overview</p>
+      <a href="#" class="sidebar-link active" data-page="overview">
+        <span class="nav-icon">🏠</span> Overview
+      </a>
+      <a href="#" class="sidebar-link" data-page="athletes">
+        <span class="nav-icon">👥</span> My Athletes
+        <span class="nav-badge">8</span>
+      </a>
+
+      <p class="sidebar-section-label">Coaching</p>
+      <a href="#" class="sidebar-link" data-page="programs">
+        <span class="nav-icon">🏋️</span> Training Programs
+      </a>
+      <a href="#" class="sidebar-link" data-page="sessions">
+        <span class="nav-icon">📅</span> Sessions
+        <span class="nav-badge">3</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="notes">
+        <span class="nav-icon">📝</span> Progress Notes
+      </a>
+
+      <p class="sidebar-section-label">Communication</p>
+      <a href="#" class="sidebar-link" data-page="messages">
+        <span class="nav-icon">💬</span> Messages
+        <span class="nav-badge">5</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="approvals">
+        <span class="nav-icon">✅</span> Approvals
+        <span class="nav-badge danger">4</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar" style="background:var(--grad-gold);">SM</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Sarah Mitchell</div>
+          <div class="sidebar-user-role">Head Coach · Swimming</div>
+        </div>
+        <span style="color:var(--clr-text-muted);font-size:0.9rem;">⚙️</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ──────────────────────────────────────────────── -->
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <button class="topbar-menu-btn" id="menuToggle" aria-label="Toggle sidebar">☰</button>
+      <h1 class="topbar-title" id="topbarTitle">Overview</h1>
+      <div class="topbar-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search athletes…" aria-label="Search athletes" />
+      </div>
+      <div class="topbar-actions">
+        <button class="topbar-icon-btn" aria-label="Notifications">🔔<span class="notif-dot"></span></button>
+        <div class="topbar-profile" role="button" tabindex="0">
+          <div class="avatar" style="width:28px;height:28px;font-size:0.7rem;background:var(--grad-gold);">SM</div>
+          <span class="topbar-profile-name">Sarah Mitchell</span>
+          <span style="color:var(--clr-text-muted);font-size:0.75rem;">▾</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-content">
+
+      <!-- ════════════════════════════ OVERVIEW ════════════════════════ -->
+      <section class="dash-page active" id="page-overview">
+
+        <!-- Welcome banner -->
+        <div class="dash-panel" style="background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(239,68,68,0.06));border-color:rgba(245,158,11,0.2);">
+          <div class="flex gap-6" style="align-items:center;flex-wrap:wrap;">
+            <div class="avatar" style="width:64px;height:64px;font-size:1.5rem;background:var(--grad-gold);flex-shrink:0;">SM</div>
+            <div style="flex:1;">
+              <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:var(--fw-extrabold);color:var(--clr-text-primary);">Welcome back, Sarah 👋</div>
+              <div style="color:var(--clr-text-secondary);font-size:var(--text-sm);margin-top:4px;">Head Swimming Coach · <span style="color:var(--clr-accent-light);">8 athletes</span> · 3 sessions today</div>
+            </div>
+            <div class="flex gap-6">
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-accent-light);">8</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Athletes</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-primary-light);">5</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Programs</div></div>
+              <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:var(--fw-extrabold);color:var(--clr-success);">4</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">Approvals</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat widgets -->
+        <div class="stat-grid">
+          <div class="stat-widget">
+            <div class="stat-widget-icon blue">👥</div>
+            <div class="stat-widget-label">Active Athletes</div>
+            <div class="stat-widget-value">8</div>
+            <span class="stat-widget-change up">↑ +1 this month</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon gold">🏋️</div>
+            <div class="stat-widget-label">Programs Running</div>
+            <div class="stat-widget-value">5</div>
+            <span class="stat-widget-change up">↑ All on track</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon green">📅</div>
+            <div class="stat-widget-label">Sessions This Week</div>
+            <div class="stat-widget-value">12</div>
+            <span class="stat-widget-change up">↑ 3 today</span>
+          </div>
+          <div class="stat-widget">
+            <div class="stat-widget-icon red">✅</div>
+            <div class="stat-widget-label">Pending Approvals</div>
+            <div class="stat-widget-value">4</div>
+            <span class="stat-widget-change down">↓ Needs review</span>
+          </div>
+        </div>
+
+        <!-- Athletes quick list + Today's sessions -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);">
+          <!-- Athlete quick view -->
+          <div class="dash-panel">
+            <div class="dash-section-header">
+              <div class="dash-section-title">My Athletes</div>
+              <a href="#" class="btn btn-sm btn-outline" data-page-link="athletes">View All</a>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+              <div class="flex gap-3" style="align-items:center;padding:var(--sp-3);background:var(--clr-bg-surface2);border-radius:var(--radius-md);border:1px solid var(--clr-border);">
+                <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">JR</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Jordan Riley</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Swimming · Score: 92</div>
+                </div>
+                <div class="progress-track" style="width:80px;margin:0;"><div class="progress-fill" style="width:92%;"></div></div>
+              </div>
+              <div class="flex gap-3" style="align-items:center;padding:var(--sp-3);background:var(--clr-bg-surface2);border-radius:var(--radius-md);border:1px solid var(--clr-border);">
+                <div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">AT</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Alex Torres</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Swimming · Score: 87</div>
+                </div>
+                <div class="progress-track" style="width:80px;margin:0;"><div class="progress-fill" style="width:87%;background:linear-gradient(90deg,#10b981,#06b6d4);"></div></div>
+              </div>
+              <div class="flex gap-3" style="align-items:center;padding:var(--sp-3);background:var(--clr-bg-surface2);border-radius:var(--radius-md);border:1px solid var(--clr-border);">
+                <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">MK</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Maya Kim</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Swimming · Score: 79</div>
+                </div>
+                <div class="progress-track" style="width:80px;margin:0;"><div class="progress-fill" style="width:79%;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div></div>
+              </div>
+              <div class="flex gap-3" style="align-items:center;padding:var(--sp-3);background:var(--clr-bg-surface2);border-radius:var(--radius-md);border:1px solid var(--clr-border);">
+                <div class="avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">LJ</div>
+                <div style="flex:1;">
+                  <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Lena Johnson</div>
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Swimming · Score: 83</div>
+                </div>
+                <div class="progress-track" style="width:80px;margin:0;"><div class="progress-fill" style="width:83%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Today's sessions -->
+          <div class="dash-panel">
+            <div class="dash-section-header">
+              <div class="dash-section-title">Today's Sessions</div>
+              <span class="badge badge-green badge-dot">Live</span>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="schedule-time">06:00 AM</div>
+                <div class="schedule-info">
+                  <div class="schedule-name">Morning Endurance — Jordan, Lena</div>
+                  <div class="schedule-meta">Pool A · 90 min</div>
+                </div>
+                <span class="badge badge-green">Done</span>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">09:00 AM</div>
+                <div class="schedule-info">
+                  <div class="schedule-name">Technique Drills — Alex, Maya</div>
+                  <div class="schedule-meta">Pool B · 60 min</div>
+                </div>
+                <span class="badge badge-blue">Next</span>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">05:30 PM</div>
+                <div class="schedule-info">
+                  <div class="schedule-name">Sprint Intervals — Full Squad</div>
+                  <div class="schedule-meta">Track · 60 min</div>
+                </div>
+                <span class="badge" style="background:rgba(100,116,139,0.2);color:var(--clr-text-muted);">Upcoming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ════════════════════════════ ATHLETES ════════════════════════ -->
+      <section class="dash-page" id="page-athletes">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">My Athletes</div>
+            <div class="dash-section-sub">8 athletes assigned to your coaching roster</div>
+          </div>
+          <button class="btn btn-primary btn-sm">+ Assign Athlete</button>
+        </div>
+
+        <div class="dash-panel" style="padding:0;overflow:hidden;">
+          <div class="dash-table-wrap" style="border:none;border-radius:0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Athlete</th>
+                  <th>Sport</th>
+                  <th>Sessions/wk</th>
+                  <th>Score</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">JR</div><div><div class="table-user-name">Jordan Riley</div><div class="table-user-sub">jordan@example.com</div></div></div></td>
+                  <td>Swimming</td><td>4</td><td><strong style="color:var(--clr-text-primary);">92</strong></td>
+                  <td><div class="progress-track" style="width:100px;margin:0;"><div class="progress-fill" style="width:92%;"></div></div></td>
+                  <td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td><button class="btn btn-sm btn-outline">View</button></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);">AT</div><div><div class="table-user-name">Alex Torres</div><div class="table-user-sub">alex@example.com</div></div></div></td>
+                  <td>Swimming</td><td>4</td><td><strong style="color:var(--clr-text-primary);">87</strong></td>
+                  <td><div class="progress-track" style="width:100px;margin:0;"><div class="progress-fill" style="width:87%;background:linear-gradient(90deg,#10b981,#06b6d4);"></div></div></td>
+                  <td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td><button class="btn btn-sm btn-outline">View</button></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">LJ</div><div><div class="table-user-name">Lena Johnson</div><div class="table-user-sub">lena@example.com</div></div></div></td>
+                  <td>Swimming</td><td>3</td><td><strong style="color:var(--clr-text-primary);">83</strong></td>
+                  <td><div class="progress-track" style="width:100px;margin:0;"><div class="progress-fill" style="width:83%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div></td>
+                  <td><span class="badge badge-green badge-dot">Active</span></td>
+                  <td><button class="btn btn-sm btn-outline">View</button></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">MK</div><div><div class="table-user-name">Maya Kim</div><div class="table-user-sub">maya@example.com</div></div></div></td>
+                  <td>Swimming</td><td>3</td><td><strong style="color:var(--clr-text-primary);">79</strong></td>
+                  <td><div class="progress-track" style="width:100px;margin:0;"><div class="progress-fill" style="width:79%;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div></div></td>
+                  <td><span class="badge badge-gold">Review</span></td>
+                  <td><button class="btn btn-sm btn-outline">View</button></td>
+                </tr>
+                <tr>
+                  <td><div class="table-user"><div class="avatar" style="background:linear-gradient(135deg,#ef4444,#f59e0b);">RC</div><div><div class="table-user-name">Ryan Cruz</div><div class="table-user-sub">ryan@example.com</div></div></div></td>
+                  <td>Swimming</td><td>2</td><td><strong style="color:var(--clr-text-primary);">71</strong></td>
+                  <td><div class="progress-track" style="width:100px;margin:0;"><div class="progress-fill" style="width:71%;background:linear-gradient(90deg,#ef4444,#f59e0b);"></div></div></td>
+                  <td><span class="badge badge-gold">Review</span></td>
+                  <td><button class="btn btn-sm btn-outline">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ PROGRAMS ════════════════════════ -->
+      <section class="dash-page" id="page-programs">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Training Programs</div>
+            <div class="dash-section-sub">Create or update personalized training programs</div>
+          </div>
+          <button class="btn btn-primary btn-sm">+ New Program</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--sp-5);">
+          <div class="dash-panel">
+            <div class="flex-between" style="margin-bottom:var(--sp-4);">
+              <div>
+                <div style="font-size:var(--text-base);font-weight:var(--fw-bold);color:var(--clr-text-primary);">Q2 Peak Performance</div>
+                <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">3 athletes assigned</div>
+              </div>
+              <span class="badge badge-green badge-dot">Active</span>
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--clr-text-secondary);line-height:var(--lh-relaxed);margin-bottom:var(--sp-4);">High-intensity interval training focused on speed and endurance for championship preparation.</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-5);">
+              <div class="flex-between" style="font-size:var(--text-xs);color:var(--clr-text-muted);"><span>Progress</span><span>67%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:67%;"></div></div>
+            </div>
+            <div class="flex gap-3">
+              <button class="btn btn-outline btn-sm">Edit</button>
+              <button class="btn btn-sm" style="background:rgba(59,130,246,0.1);color:var(--clr-primary-light);border:1px solid rgba(59,130,246,0.2);">View Details</button>
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="flex-between" style="margin-bottom:var(--sp-4);">
+              <div>
+                <div style="font-size:var(--text-base);font-weight:var(--fw-bold);color:var(--clr-text-primary);">Beginner Foundation</div>
+                <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">2 athletes assigned</div>
+              </div>
+              <span class="badge badge-blue">Active</span>
+            </div>
+            <div style="font-size:var(--text-sm);color:var(--clr-text-secondary);line-height:var(--lh-relaxed);margin-bottom:var(--sp-4);">Foundational program for new athletes to build basic technique, endurance and conditioning.</div>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-2);margin-bottom:var(--sp-5);">
+              <div class="flex-between" style="font-size:var(--text-xs);color:var(--clr-text-muted);"><span>Progress</span><span>35%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width:35%;background:linear-gradient(90deg,#10b981,#06b6d4);"></div></div>
+            </div>
+            <div class="flex gap-3">
+              <button class="btn btn-outline btn-sm">Edit</button>
+              <button class="btn btn-sm" style="background:rgba(59,130,246,0.1);color:var(--clr-primary-light);border:1px solid rgba(59,130,246,0.2);">View Details</button>
+            </div>
+          </div>
+
+          <div class="dash-panel" style="border-style:dashed;border-color:rgba(59,130,246,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;gap:var(--sp-3);text-align:center;cursor:pointer;" onclick="document.querySelector('[data-page=programs]').click()">
+            <div style="width:48px;height:48px;border-radius:50%;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">+</div>
+            <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-secondary);">Create New Program</div>
+          </div>
+        </div>
+
+        <!-- Create / edit form -->
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">📝 New / Edit Program</div>
+          <form onsubmit="return false;" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Program Name</label>
+              <input type="text" class="form-input" placeholder="e.g. Q3 Strength Block" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Assign Athletes</label>
+              <select class="form-input">
+                <option>Jordan Riley</option>
+                <option>Alex Torres</option>
+                <option>Maya Kim</option>
+                <option>Lena Johnson</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;grid-column:span 2;">
+              <label class="form-label">Program Description</label>
+              <textarea class="form-input" rows="3" placeholder="Describe the program goals and focus areas…" style="resize:vertical;"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Start Date</label>
+              <input type="date" class="form-input" value="2026-04-01" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Duration (weeks)</label>
+              <input type="number" class="form-input" placeholder="8" value="8" />
+            </div>
+            <div style="grid-column:span 2;display:flex;gap:var(--sp-3);">
+              <button class="btn btn-primary">Save Program</button>
+              <button class="btn btn-outline">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ SESSIONS ════════════════════════ -->
+      <section class="dash-page" id="page-sessions">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Upcoming Sessions</div>
+            <div class="dash-section-sub">Next 7 days · 12 sessions scheduled</div>
+          </div>
+          <button class="btn btn-primary btn-sm">+ Schedule Session</button>
+        </div>
+
+        <div class="dash-panel">
+          <div class="schedule-list">
+            <div class="schedule-item">
+              <div style="text-align:center;min-width:64px;"><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">WED</div><div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--fw-bold);color:var(--clr-text-primary);">25</div></div>
+              <div class="schedule-time">06:00 AM</div>
+              <div class="schedule-info">
+                <div class="schedule-name">Morning Endurance Swim</div>
+                <div class="schedule-meta">Jordan Riley, Lena Johnson · Pool A · 90 min</div>
+              </div>
+              <span class="badge badge-blue">Today</span>
+            </div>
+            <div class="schedule-item">
+              <div style="text-align:center;min-width:64px;"><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">WED</div><div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--fw-bold);color:var(--clr-text-primary);">25</div></div>
+              <div class="schedule-time">09:00 AM</div>
+              <div class="schedule-info">
+                <div class="schedule-name">Technique Drills</div>
+                <div class="schedule-meta">Alex Torres, Maya Kim · Pool B · 60 min</div>
+              </div>
+              <span class="badge badge-blue">Today</span>
+            </div>
+            <div class="schedule-item">
+              <div style="text-align:center;min-width:64px;"><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">THU</div><div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--fw-bold);color:var(--clr-text-primary);">26</div></div>
+              <div class="schedule-time">07:00 AM</div>
+              <div class="schedule-info">
+                <div class="schedule-name">Core Circuit Training</div>
+                <div class="schedule-meta">Full Squad · Gym B · 60 min</div>
+              </div>
+              <span class="badge" style="background:rgba(100,116,139,0.2);color:var(--clr-text-muted);">Tomorrow</span>
+            </div>
+            <div class="schedule-item">
+              <div style="text-align:center;min-width:64px;"><div style="font-size:var(--text-xs);color:var(--clr-text-muted);">FRI</div><div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--fw-bold);color:var(--clr-text-primary);">27</div></div>
+              <div class="schedule-time">06:00 AM</div>
+              <div class="schedule-info">
+                <div class="schedule-name">Time Trials — 100m Freestyle</div>
+                <div class="schedule-meta">Jordan Riley, Alex Torres · Pool A · 120 min</div>
+              </div>
+              <span class="badge" style="background:rgba(100,116,139,0.2);color:var(--clr-text-muted);">Fri</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ NOTES ════════════════════════ -->
+      <section class="dash-page" id="page-notes">
+        <div class="flex-between" style="flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Progress Notes</div>
+            <div class="dash-section-sub">Log athlete progress and coaching observations</div>
+          </div>
+          <button class="btn btn-primary btn-sm">+ New Note</button>
+        </div>
+
+        <!-- Quick log form -->
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">📝 Log Progress Note</div>
+          <form onsubmit="return false;" style="display:flex;flex-direction:column;gap:var(--sp-4);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Athlete</label>
+                <select class="form-input">
+                  <option>Jordan Riley</option>
+                  <option>Alex Torres</option>
+                  <option>Maya Kim</option>
+                  <option>Lena Johnson</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Session</label>
+                <select class="form-input">
+                  <option>Morning Endurance Swim (Mar 25)</option>
+                  <option>Technique Drills (Mar 24)</option>
+                  <option>Sprint Intervals (Mar 23)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Note</label>
+              <textarea class="form-input" rows="4" placeholder="Describe performance, observations or recommendations…" style="resize:vertical;"></textarea>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Performance Rating</label>
+                <select class="form-input">
+                  <option>⭐⭐⭐⭐⭐ Excellent</option>
+                  <option>⭐⭐⭐⭐ Good</option>
+                  <option>⭐⭐⭐ Average</option>
+                  <option>⭐⭐ Needs Work</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Visibility</label>
+                <select class="form-input">
+                  <option>Shared with athlete</option>
+                  <option>Coach only (private)</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="align-self:flex-start;">Save Note</button>
+          </form>
+        </div>
+
+        <!-- Recent notes -->
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">Recent Notes</div>
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);width:32px;height:32px;font-size:0.6rem;flex-shrink:0;">JR</div>
+              <div class="activity-body">
+                <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);margin-bottom:2px;">Jordan Riley <span style="font-weight:400;color:var(--clr-text-muted);">· Morning Endurance Swim</span></div>
+                <div class="activity-text">Stroke rate was excellent throughout. Final 200m laps showed strong consistency. Recommend increasing distance next week.</div>
+                <div class="activity-time">Today, 7:45 AM · ⭐⭐⭐⭐⭐ Excellent</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);width:32px;height:32px;font-size:0.6rem;flex-shrink:0;">MK</div>
+              <div class="activity-body">
+                <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);margin-bottom:2px;">Maya Kim <span style="font-weight:400;color:var(--clr-text-muted);">· Technique Drills</span></div>
+                <div class="activity-text">Flip turns need improvement — losing 0.4s per turn. Schedule extra technique drills on Thursday morning.</div>
+                <div class="activity-time">Yesterday, 10:15 AM · ⭐⭐⭐ Average</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);width:32px;height:32px;font-size:0.6rem;flex-shrink:0;">AT</div>
+              <div class="activity-body">
+                <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);margin-bottom:2px;">Alex Torres <span style="font-weight:400;color:var(--clr-text-muted);">· Sprint Intervals</span></div>
+                <div class="activity-text">Personal best on 50m sprint (24.8s). Great improvement. Physical conditioning is looking strong for the regionals.</div>
+                <div class="activity-time">Mar 23, 6:30 PM · ⭐⭐⭐⭐ Good</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ MESSAGES ════════════════════════ -->
+      <section class="dash-page" id="page-messages">
+        <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-6);">Messages</div>
+        <div style="display:grid;grid-template-columns:280px 1fr;gap:var(--sp-5);min-height:450px;">
+          <div class="dash-panel" style="padding:0;overflow:hidden;">
+            <div style="padding:var(--sp-4) var(--sp-5);border-bottom:1px solid var(--clr-border);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Athletes</div>
+            <div class="chat-list" style="padding:var(--sp-3);">
+              <div class="chat-item unread">
+                <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);font-size:0.7rem;">JR</div>
+                <div class="chat-info"><div class="chat-name">Jordan Riley</div><div class="chat-preview">Shall we push sprints harder on Friday?</div></div>
+                <div class="chat-meta"><div class="chat-time">9:44</div><div class="chat-unread-count">1</div></div>
+              </div>
+              <div class="chat-item unread">
+                <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);font-size:0.7rem;">MK</div>
+                <div class="chat-info"><div class="chat-name">Maya Kim</div><div class="chat-preview">Can we reschedule Thursday session?</div></div>
+                <div class="chat-meta"><div class="chat-time">8:30</div><div class="chat-unread-count">2</div></div>
+              </div>
+              <div class="chat-item">
+                <div class="avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4);font-size:0.7rem;">AT</div>
+                <div class="chat-info"><div class="chat-name">Alex Torres</div><div class="chat-preview">Thanks for the feedback coach!</div></div>
+                <div class="chat-meta"><div class="chat-time">Yesterday</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-panel" style="display:flex;flex-direction:column;gap:var(--sp-4);">
+            <div class="flex gap-3" style="align-items:center;padding-bottom:var(--sp-4);border-bottom:1px solid var(--clr-border);">
+              <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">JR</div>
+              <div><div style="font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Jordan Riley</div><div style="font-size:var(--text-xs);color:var(--clr-success);">● Online</div></div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:var(--sp-4);">
+              <div style="display:flex;gap:var(--sp-3);">
+                <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);width:32px;height:32px;font-size:0.6rem;flex-shrink:0;">JR</div>
+                <div><div style="background:var(--clr-bg-surface2);border:1px solid var(--clr-border);border-radius:0 var(--radius-md) var(--radius-md) var(--radius-md);padding:var(--sp-3) var(--sp-4);font-size:var(--text-sm);color:var(--clr-text-primary);max-width:360px;">Shall we push sprint intervals harder on Friday? I felt really good today!</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);margin-top:4px;">9:44 AM</div></div>
+              </div>
+              <div style="display:flex;gap:var(--sp-3);flex-direction:row-reverse;">
+                <div class="avatar" style="background:var(--grad-gold);width:32px;height:32px;font-size:0.6rem;flex-shrink:0;">SM</div>
+                <div style="text-align:right;"><div style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-md) 0 var(--radius-md) var(--radius-md);padding:var(--sp-3) var(--sp-4);font-size:var(--text-sm);color:var(--clr-text-primary);max-width:360px;display:inline-block;">Absolutely! Let's add 3 extra sprint sets on Friday and aim for sub-25s on the 50m. You're ready for it.</div><div style="font-size:var(--text-xs);color:var(--clr-text-muted);margin-top:4px;">10:02 AM</div></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:var(--sp-3);padding-top:var(--sp-4);border-top:1px solid var(--clr-border);">
+              <input type="text" class="form-input" placeholder="Type a message…" style="flex:1;" />
+              <button class="btn btn-primary btn-sm">Send ➤</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════ APPROVALS ════════════════════════ -->
+      <section class="dash-page" id="page-approvals">
+        <div>
+          <div class="dash-section-title" style="font-size:var(--text-2xl);margin-bottom:var(--sp-1);">Approvals</div>
+          <div class="dash-section-sub" style="margin-bottom:var(--sp-6);">Review and approve athlete achievements and test results</div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">🕐 Pending Review (4)</div>
+          <div class="achievement-list">
+            <div class="achievement-item" style="border-color:rgba(245,158,11,0.2);">
+              <div class="achievement-icon">🥇</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Jordan Riley — Regional Championship Gold</div>
+                <div class="achievement-date">Submitted Mar 22, 2026 · Category: Competition</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Approve</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Reject</button>
+              </div>
+            </div>
+            <div class="achievement-item" style="border-color:rgba(245,158,11,0.2);">
+              <div class="achievement-icon">⏱️</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Jordan Riley — PB 100m Freestyle (58.2s)</div>
+                <div class="achievement-date">Submitted Mar 18, 2026 · Category: Personal Best</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Approve</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Reject</button>
+              </div>
+            </div>
+            <div class="achievement-item" style="border-color:rgba(245,158,11,0.2);">
+              <div class="achievement-icon">🏅</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Alex Torres — City Junior Championship Silver</div>
+                <div class="achievement-date">Submitted Mar 15, 2026 · Category: Competition</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Approve</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Reject</button>
+              </div>
+            </div>
+            <div class="achievement-item" style="border-color:rgba(245,158,11,0.2);">
+              <div class="achievement-icon">🔥</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Lena Johnson — 30-Day Streak Badge</div>
+                <div class="achievement-date">Submitted Mar 10, 2026 · Category: Consistency</div>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn btn-sm" style="background:rgba(16,185,129,0.15);color:var(--clr-success);border:1px solid rgba(16,185,129,0.2);padding:0.4rem 0.8rem;">✓ Approve</button>
+                <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--clr-danger);border:1px solid rgba(239,68,68,0.2);padding:0.4rem 0.8rem;">✕ Reject</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="dash-section-title" style="margin-bottom:var(--sp-5);">✅ Recently Approved</div>
+          <div class="achievement-list">
+            <div class="achievement-item">
+              <div class="achievement-icon">💪</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Jordan Riley — 100 Training Sessions</div>
+                <div class="achievement-date">Approved Feb 28, 2026</div>
+              </div>
+              <span class="badge badge-green">Approved</span>
+            </div>
+            <div class="achievement-item">
+              <div class="achievement-icon">🥈</div>
+              <div class="achievement-body">
+                <div class="achievement-name">Alex Torres — State Championship Bronze</div>
+                <div class="achievement-date">Approved Jan 25, 2026</div>
+              </div>
+              <span class="badge badge-green">Approved</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script>
+'use strict';
+(function () {
+  const sidebar  = document.getElementById('dashSidebar');
+  const overlay  = document.getElementById('sidebarOverlay');
+  const menuBtn  = document.getElementById('menuToggle');
+  const topTitle = document.getElementById('topbarTitle');
+
+  function openSidebar()  { sidebar.classList.add('open');  overlay.classList.add('open'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+  menuBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+  overlay.addEventListener('click', closeSidebar);
+
+  const navLinks = document.querySelectorAll('[data-page]');
+  const pages    = document.querySelectorAll('.dash-page');
+
+  function showPage(pageId) {
+    pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + pageId));
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.page === pageId));
+    const titleMap = {overview:'Overview',athletes:'My Athletes',programs:'Training Programs',sessions:'Sessions',notes:'Progress Notes',messages:'Messages',approvals:'Approvals'};
+    topTitle.textContent = titleMap[pageId] || 'Dashboard';
+    closeSidebar();
+  }
+
+  navLinks.forEach(link => link.addEventListener('click', e => { e.preventDefault(); showPage(link.dataset.page); }));
+  document.querySelectorAll('[data-page-link]').forEach(btn => btn.addEventListener('click', e => { e.preventDefault(); showPage(btn.dataset.pageLink); }));
+})();
+</script>
+
+</body>
+</html>

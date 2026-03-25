@@ -99,8 +99,13 @@
   color: var(--clr-text-primary);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
+}
+
+.nav-link.active {
+  color: var(--clr-text-primary);
 }
 
 /* Nav Actions */
@@ -306,6 +311,14 @@
   font-size: var(--text-sm);
   color: var(--clr-text-muted);
   margin-top: var(--sp-1);
+}
+
+/* Vertical separator between stats */
+.hero-stat-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--clr-border);
+  flex-shrink: 0;
 }
 
 /* Scroll indicator */
@@ -645,9 +658,6 @@
   transform: translateY(-2px);
 }
 
-/* ─────────────────────────────────────────────────────────── 
-   KEYFRAMES
-   ─────────────────────────────────────────────────────────── */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -673,4 +683,235 @@
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────── 
+   ROLES SECTION  (Athlete / Coach / Admin)
+   ─────────────────────────────────────────────────────────── */
+.roles-section {
+  background-color: var(--clr-bg-mid);
+  position: relative;
+}
+
+.roles-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.4), transparent);
+}
+
+/* ── Tab Strip ───────────────────────────────────────────── */
+.roles-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-10);
+  background: var(--clr-bg-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-2);
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.role-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background var(--dur-normal) var(--ease-std),
+    color var(--dur-normal) var(--ease-std),
+    border-color var(--dur-normal) var(--ease-std),
+    box-shadow var(--dur-normal) var(--ease-std);
+  white-space: nowrap;
+}
+
+.role-tab-btn:hover {
+  color: var(--clr-text-primary);
+  background: var(--clr-bg-surface2);
+}
+
+.role-tab-btn.active {
+  background: var(--clr-bg-surface2);
+  color: var(--clr-text-primary);
+  border-color: var(--clr-border-bright);
+  box-shadow: var(--shadow-sm);
+}
+
+.role-tab-btn[data-role="athlete"].active { color: var(--clr-primary-light); border-color: var(--clr-border-bright); }
+.role-tab-btn[data-role="coach"].active   { color: var(--clr-accent-light);  border-color: rgba(245,158,11,0.35); }
+.role-tab-btn[data-role="admin"].active   { color: #c4b5fd;                   border-color: rgba(139,92,246,0.35); }
+
+.role-tab-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Tab Panels ──────────────────────────────────────────── */
+.role-tab-panel {
+  display: none;
+}
+
+.role-tab-panel.active {
+  display: block;
+  animation: fadeInUp var(--dur-slow) var(--ease-out);
+}
+
+.role-panel-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-16);
+}
+
+/* ── Left: Text ──────────────────────────────────────────── */
+.role-panel-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.role-panel-badge {
+  margin-bottom: var(--sp-4);
+  font-size: var(--text-xs);
+}
+
+.role-panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+  color: var(--clr-text-primary);
+  margin-bottom: var(--sp-4);
+  line-height: var(--lh-tight);
+}
+
+.role-panel-desc {
+  font-size: var(--text-base);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--sp-6);
+  max-width: 460px;
+}
+
+.role-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+
+.role-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: var(--text-sm);
+  color: var(--clr-text-secondary);
+  line-height: var(--lh-relaxed);
+}
+
+.role-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: rgba(59,130,246,0.15);
+  color: var(--clr-primary-light);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  margin-top: 2px;
+}
+
+.role-check-gold   { background: rgba(245,158,11,0.15); color: var(--clr-accent-light); }
+.role-check-purple { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+
+/* ── Right: Visual mini-card ─────────────────────────────── */
+.role-panel-visual {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+.role-mini-card {
+  background: var(--clr-bg-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.role-mini-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.role-mini-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.role-mini-stats {
+  display: flex;
+  gap: var(--sp-4);
+  padding: var(--sp-4) 0;
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.role-mini-stat {
+  flex: 1;
+  text-align: center;
+}
+
+.role-mini-stat-val {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-primary-light);
+  line-height: 1;
+}
+
+.role-mini-stat-lbl {
+  font-size: var(--text-xs);
+  color: var(--clr-text-muted);
+  margin-top: var(--sp-1);
+}
+
+.role-mini-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--clr-border);
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* Admin-specific row */
+.admin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--clr-bg-surface2);
+  border-radius: var(--radius-md);
+  gap: var(--sp-3);
 }

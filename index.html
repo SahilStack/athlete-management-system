@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AthletiQ – The professional Athlete Management System for coaches and athletes. Track performance, manage training programs, and reach peak potential." />
+  <meta name="description" content="AthletiQ – The professional Athlete Management System for coaches, athletes, and admins. Track performance, manage training programs, and reach peak potential." />
   <meta name="keywords" content="athlete management, sports performance, coaching platform, training tracker" />
   <meta name="author" content="AthletiQ Team" />
 
@@ -42,16 +42,16 @@
 
       <!-- Desktop Navigation -->
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <a href="#features"   class="nav-link">Features</a>
-        <a href="#dashboard"  class="nav-link">Dashboard</a>
-        <a href="#pricing"    class="nav-link">Pricing</a>
-        <a href="#about"      class="nav-link">About</a>
+        <a href="#features"  class="nav-link">Features</a>
+        <a href="#roles"     class="nav-link">Who It's For</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#about"     class="nav-link">About</a>
       </nav>
 
       <!-- Desktop Auth Buttons -->
       <div class="nav-actions">
-        <a href="pages/login.html"    class="btn btn-outline btn-sm">Log In</a>
-        <a href="pages/register.html" class="btn btn-primary btn-sm">Get Started</a>
+        <a href="login.html"  class="btn btn-outline btn-sm">Log In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -72,13 +72,13 @@
 
   <!-- Mobile Navigation Menu -->
   <nav id="mobileMenu" class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-    <a href="#features"   class="nav-link">Features</a>
-    <a href="#dashboard"  class="nav-link">Dashboard</a>
-    <a href="#pricing"    class="nav-link">Pricing</a>
-    <a href="#about"      class="nav-link">About</a>
+    <a href="#features"  class="nav-link">Features</a>
+    <a href="#roles"     class="nav-link">Who It's For</a>
+    <a href="#dashboard" class="nav-link">Dashboard</a>
+    <a href="#about"     class="nav-link">About</a>
     <div style="display:flex;gap:var(--sp-3);margin-top:var(--sp-2);">
-      <a href="pages/login.html"    class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">Log In</a>
-      <a href="pages/register.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Get Started</a>
+      <a href="login.html"  class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm" style="flex:1;justify-content:center;">Sign Up</a>
     </div>
   </nav>
 
@@ -100,26 +100,26 @@
       <div class="hero-content">
 
         <!-- Pre-title badge -->
-        <div class="hero-badge fade-up" aria-label="Trusted by professionals">
+        <div class="hero-badge" aria-label="Trusted by professionals">
           <span class="hero-badge-dot" aria-hidden="true"></span>
           Now in Open Beta · 1,200+ Athletes Onboard
         </div>
 
         <!-- Main Headline -->
-        <h1 id="hero-heading" class="hero-title fade-up delay-1">
+        <h1 id="hero-heading" class="hero-title">
           The Ultimate Platform to
           <span class="hero-title-line2" id="typewriter-target" aria-live="polite">Track Your Performance</span><span class="typewriter-cursor" aria-hidden="true"></span>
         </h1>
 
         <!-- Sub-text -->
-        <p class="hero-sub fade-up delay-2">
+        <p class="hero-sub">
           AthletiQ unifies athlete data, training programs, and coach insights in one
           beautifully designed workspace — so you can focus on winning.
         </p>
 
         <!-- CTAs -->
-        <div class="hero-cta fade-up delay-3">
-          <a href="pages/register.html" class="btn btn-primary btn-lg">
+        <div class="hero-cta">
+          <a href="signup.html" class="btn btn-primary btn-lg">
             🚀 Get Started Free
           </a>
           <a href="#dashboard" class="btn btn-outline btn-lg">
@@ -128,22 +128,22 @@
         </div>
 
         <!-- Hero Stats -->
-        <div class="hero-stats fade-up delay-4" aria-label="Platform statistics">
+        <div class="hero-stats" aria-label="Platform statistics">
           <div class="hero-stat">
             <div class="hero-stat-value" data-count="1200" data-suffix="+" aria-label="1200+ Athletes">0+</div>
             <div class="hero-stat-label">Athletes</div>
           </div>
-          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat-sep" aria-hidden="true"></div>
           <div class="hero-stat">
             <div class="hero-stat-value" data-count="340" data-suffix="+" aria-label="340+ Coaches">0+</div>
             <div class="hero-stat-label">Coaches</div>
           </div>
-          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat-sep" aria-hidden="true"></div>
           <div class="hero-stat">
             <div class="hero-stat-value" data-count="98" data-suffix="%" aria-label="98% Satisfaction">0%</div>
             <div class="hero-stat-label">Satisfaction</div>
           </div>
-          <div class="hero-stat" role="separator" aria-hidden="true" style="color:var(--clr-border);font-size:1.5rem;">|</div>
+          <div class="hero-stat-sep" aria-hidden="true"></div>
           <div class="hero-stat">
             <div class="hero-stat-value" data-count="50" data-suffix="K+" aria-label="50K+ Workouts logged">0+</div>
             <div class="hero-stat-label">Workouts Logged</div>
@@ -169,13 +169,13 @@
 
         <!-- Section Header -->
         <div class="section-header fade-up">
-          <p class="section-tag">⚙️ Features</p>
+          <p class="section-tag">⚙️ Platform Features</p>
           <h2 id="features-heading" class="section-title">
             Everything a Coach and<br>
             <span class="text-gradient">Athlete Needs</span>
           </h2>
           <p class="section-subtitle">
-            From performance tracking to AI-powered insights — AthletiQ gives you the
+            From performance tracking to injury management — AthletiQ gives you the
             complete toolkit to dominate your sport.
           </p>
         </div>
@@ -183,7 +183,6 @@
         <!-- Feature Cards -->
         <div class="features-grid">
 
-          <!-- Card 1 -->
           <article class="card fade-up delay-1">
             <div class="icon-circle icon-circle-blue" aria-hidden="true">📊</div>
             <h3 class="feature-card-title">Performance Analytics</h3>
@@ -193,7 +192,6 @@
             </p>
           </article>
 
-          <!-- Card 2 -->
           <article class="card fade-up delay-2">
             <div class="icon-circle icon-circle-gold" aria-hidden="true">🏋️</div>
             <h3 class="feature-card-title">Training Program Builder</h3>
@@ -203,23 +201,21 @@
             </p>
           </article>
 
-          <!-- Card 3 -->
           <article class="card fade-up delay-3">
             <div class="icon-circle icon-circle-green" aria-hidden="true">🩺</div>
-            <h3 class="feature-card-title">Injury & Recovery Tracker</h3>
+            <h3 class="feature-card-title">Injury &amp; Recovery Tracker</h3>
             <p class="feature-card-desc">
               Log and monitor injuries with recovery timelines. Get notified before
               an athlete's workload puts them at risk — keeping them healthy longer.
             </p>
           </article>
 
-          <!-- Card 4 -->
           <article class="card fade-up delay-4">
             <div class="icon-circle icon-circle-purple" aria-hidden="true">💬</div>
             <h3 class="feature-card-title">Coach–Athlete Messaging</h3>
             <p class="feature-card-desc">
               Communicate in real time. Share video clips, feedback, and motivational
-              notes directly inside the platform — no more scattered WhatsApp threads.
+              notes directly inside the platform — no more scattered threads.
             </p>
           </article>
 
@@ -227,6 +223,205 @@
 
       </div><!-- /.container -->
     </section><!-- /.features -->
+
+
+    <!-- ====================================================
+         ROLES SECTION  (Athlete · Coach · Admin)
+         ==================================================== -->
+    <section id="roles" class="roles-section section-pad" aria-labelledby="roles-heading">
+      <div class="container">
+
+        <div class="section-header fade-up">
+          <p class="section-tag">👥 Who It's For</p>
+          <h2 id="roles-heading" class="section-title">
+            Built for Every Role on<br>
+            <span class="text-gradient">Your Team</span>
+          </h2>
+          <p class="section-subtitle">
+            AthletiQ provides a tailored experience for Athletes and Coaches —
+            each with the tools that matter most to them.
+          </p>
+        </div>
+
+        <!-- Tab Strip -->
+        <div class="roles-tabs fade-up delay-1" role="tablist" aria-label="User roles">
+
+          <button
+            class="role-tab-btn"
+            role="tab"
+            data-role="athlete"
+            aria-controls="panel-athlete"
+            id="tab-athlete"
+            tabindex="0"
+          >
+            <span class="role-tab-icon" aria-hidden="true">🏃</span>
+            Athlete
+          </button>
+
+          <button
+            class="role-tab-btn"
+            role="tab"
+            data-role="coach"
+            aria-controls="panel-coach"
+            id="tab-coach"
+            tabindex="-1"
+          >
+            <span class="role-tab-icon" aria-hidden="true">🧑‍🏫</span>
+            Coach
+          </button>
+
+        </div><!-- /.roles-tabs -->
+
+        <!-- ── ATHLETE panel ────────────────────────────── -->
+        <div
+          class="role-tab-panel fade-up delay-2"
+          data-role="athlete"
+          id="panel-athlete"
+          role="tabpanel"
+          aria-labelledby="tab-athlete"
+          aria-hidden="true"
+        >
+          <div class="role-panel-inner">
+
+            <!-- Left description -->
+            <div class="role-panel-text">
+              <div class="role-panel-badge badge badge-blue">🏃 Athlete</div>
+              <h3 class="role-panel-title">Own Your Performance Journey</h3>
+              <p class="role-panel-desc">
+                Everything you need to train smarter, track progress, and communicate with your coach — all in one place.
+              </p>
+              <ul class="role-feature-list" aria-label="Athlete features">
+                <li><span class="role-check" aria-hidden="true">✓</span> Full profile &amp; achievement management</li>
+                <li><span class="role-check" aria-hidden="true">✓</span> View &amp; log training programs &amp; schedules</li>
+                <li><span class="role-check" aria-hidden="true">✓</span> Track personal bests &amp; performance stats</li>
+                <li><span class="role-check" aria-hidden="true">✓</span> Message your coach directly</li>
+                <li><span class="role-check" aria-hidden="true">✓</span> Upload training photos &amp; video clips</li>
+                <li><span class="role-check" aria-hidden="true">✓</span> Manage membership &amp; account security</li>
+              </ul>
+              <a href="signup.html" class="btn btn-primary mt-6">Join as Athlete →</a>
+            </div>
+
+            <!-- Right visual: mini athlete dashboard -->
+            <div class="role-panel-visual" aria-hidden="true">
+              <div class="role-mini-card">
+                <div class="role-mini-header">
+                  <div class="flex gap-3" style="align-items:center;">
+                    <div class="avatar" style="background:var(--grad-blue);">RK</div>
+                    <div>
+                      <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-primary);">Rahul Kumar</div>
+                      <div style="font-size:var(--text-xs);color:var(--clr-text-muted);">Sprint · Track &amp; Field</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-green badge-dot">Active</span>
+                </div>
+                <div class="role-mini-stats">
+                  <div class="role-mini-stat">
+                    <div class="role-mini-stat-val">92%</div>
+                    <div class="role-mini-stat-lbl">Readiness</div>
+                  </div>
+                  <div class="role-mini-stat">
+                    <div class="role-mini-stat-val">18</div>
+                    <div class="role-mini-stat-lbl">Sessions</div>
+                  </div>
+                  <div class="role-mini-stat">
+                    <div class="role-mini-stat-val">3</div>
+                    <div class="role-mini-stat-lbl">PBs This Month</div>
+                  </div>
+                </div>
+                <div style="margin-top:var(--sp-4);">
+                  <div style="font-size:var(--text-xs);color:var(--clr-text-muted);margin-bottom:var(--sp-2);">WEEKLY GOAL PROGRESS</div>
+                  <div class="progress-track"><div class="progress-fill" data-width="72%" style="width:0%;"></div></div>
+                  <div style="display:flex;justify-content:space-between;margin-top:var(--sp-1);">
+                    <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">5 of 7 sessions</span>
+                    <span style="font-size:var(--text-xs);color:var(--clr-primary-light);font-weight:var(--fw-semibold);">72%</span>
+                  </div>
+                </div>
+                <div class="role-mini-next">
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">NEXT SESSION</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-primary-light);font-weight:var(--fw-semibold);">Interval Sprints · Tomorrow 6AM</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /#panel-athlete -->
+
+        <!-- ── COACH panel ──────────────────────────────── -->
+        <div
+          class="role-tab-panel fade-up delay-2"
+          data-role="coach"
+          id="panel-coach"
+          role="tabpanel"
+          aria-labelledby="tab-coach"
+          aria-hidden="true"
+        >
+          <div class="role-panel-inner">
+
+            <div class="role-panel-text">
+              <div class="role-panel-badge badge badge-gold">🧑‍🏫 Coach</div>
+              <h3 class="role-panel-title">Lead Your Team to Peak Results</h3>
+              <p class="role-panel-desc">
+                Manage multiple athletes, design training programs, and stay ahead of every performance metric — from one clean command center.
+              </p>
+              <ul class="role-feature-list" aria-label="Coach features">
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Manage &amp; monitor all assigned athletes</li>
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Create &amp; update periodized training programs</li>
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Log session notes &amp; athlete progress</li>
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Assign custom workouts to individuals or groups</li>
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Communicate directly with athletes via messaging</li>
+                <li><span class="role-check role-check-gold" aria-hidden="true">✓</span> Review performance tests &amp; achievement history</li>
+              </ul>
+              <a href="signup.html" class="btn btn-accent mt-6">Join as Coach →</a>
+            </div>
+
+            <div class="role-panel-visual" aria-hidden="true">
+              <div class="role-mini-card">
+                <div class="role-mini-header">
+                  <div>
+                    <div style="font-size:var(--text-sm);font-weight:var(--fw-semibold);color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:0.06em;">My Athletes</div>
+                  </div>
+                  <span class="badge badge-gold">4 Active</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:var(--sp-3);margin-top:var(--sp-4);">
+                  <div class="athlete-row" style="padding:0;">
+                    <div class="avatar" style="background:var(--grad-blue);">RK</div>
+                    <div class="athlete-info">
+                      <div class="athlete-name">Rahul Kumar · Sprint</div>
+                      <div class="progress-track" style="margin-top:var(--sp-1);"><div class="progress-fill" data-width="92%" style="width:0%;"></div></div>
+                    </div>
+                    <span class="athlete-score">92%</span>
+                  </div>
+                  <div class="athlete-row" style="padding:0;">
+                    <div class="avatar" style="background:var(--grad-gold);">PS</div>
+                    <div class="athlete-info">
+                      <div class="athlete-name">Priya Sharma · Swim</div>
+                      <div class="progress-track" style="margin-top:var(--sp-1);"><div class="progress-fill" data-width="78%" style="width:0%;background:var(--grad-gold);"></div></div>
+                    </div>
+                    <span class="athlete-score">78%</span>
+                  </div>
+                  <div class="athlete-row" style="padding:0;">
+                    <div class="avatar" style="background:linear-gradient(135deg,#10b981,#059669);">AV</div>
+                    <div class="athlete-info">
+                      <div class="athlete-name">Arjun Verma · Cycle</div>
+                      <div class="progress-track" style="margin-top:var(--sp-1);"><div class="progress-fill" data-width="85%" style="width:0%;background:linear-gradient(135deg,#10b981,#059669);"></div></div>
+                    </div>
+                    <span class="athlete-score">85%</span>
+                  </div>
+                </div>
+                <div class="role-mini-next" style="margin-top:var(--sp-4);">
+                  <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">NEXT TASK</span>
+                  <span style="font-size:var(--text-xs);color:var(--clr-accent-light);font-weight:var(--fw-semibold);">Review RK's sprint test · Today</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /#panel-coach -->
+
+
+
+      </div><!-- /.container -->
+    </section><!-- /.roles-section -->
 
 
     <!-- ====================================================
@@ -249,22 +444,21 @@
             </p>
 
             <div class="btn-group flex gap-4 mt-8">
-              <a href="pages/register.html" class="btn btn-primary">Explore Dashboard</a>
-              <a href="#cta" class="btn btn-outline">See Pricing</a>
+              <a href="signup.html" class="btn btn-primary">Get Started Free</a>
+              <a href="#roles" class="btn btn-outline">See Who It's For</a>
             </div>
           </div>
 
           <!-- Right: Mock Dashboard UI -->
           <div class="dashboard-visual-wrapper fade-up delay-2" style="flex:1.2;">
 
-            <!-- Top Stats Row -->
             <div class="dashboard-grid-layout">
 
               <div class="stat-card fade-up delay-1">
                 <div class="stat-card-label">Readiness Score</div>
                 <div class="stat-card-value" data-count="87" data-suffix="">0</div>
                 <div class="progress-track" style="margin-top:var(--sp-3);">
-                  <div class="progress-fill" data-width="87%" style="--bar-h:87%;background:var(--grad-blue);"></div>
+                  <div class="progress-fill" data-width="87%" style="background:var(--grad-blue);"></div>
                 </div>
                 <span class="stat-card-change up">▲ +4 vs yesterday</span>
               </div>
@@ -285,14 +479,13 @@
                   <span class="badge badge-green badge-dot">Live</span>
                 </div>
 
-                <!-- Athlete rows -->
                 <div class="athlete-row">
                   <div class="avatar" aria-label="Athlete RK">RK</div>
                   <div class="athlete-info">
                     <div class="athlete-name">Rahul Kumar</div>
                     <div class="athlete-sport">Sprint · Track &amp; Field</div>
                     <div class="progress-track">
-                      <div class="progress-fill" data-width="92%" style="width:0%;"></div>
+                      <div class="progress-fill" data-width="92%"></div>
                     </div>
                   </div>
                   <span class="athlete-score">92%</span>
@@ -304,7 +497,7 @@
                     <div class="athlete-name">Priya Sharma</div>
                     <div class="athlete-sport">Swimmer · Freestyle</div>
                     <div class="progress-track">
-                      <div class="progress-fill" data-width="78%"  style="width:0%;background:var(--grad-gold);"></div>
+                      <div class="progress-fill" data-width="78%" style="background:var(--grad-gold);"></div>
                     </div>
                   </div>
                   <span class="athlete-score">78%</span>
@@ -316,7 +509,7 @@
                     <div class="athlete-name">Arjun Verma</div>
                     <div class="athlete-sport">Cyclist · Road Race</div>
                     <div class="progress-track">
-                      <div class="progress-fill" data-width="85%" style="width:0%;background:linear-gradient(135deg,#10b981,#059669);"></div>
+                      <div class="progress-fill" data-width="85%" style="background:linear-gradient(135deg,#10b981,#059669);"></div>
                     </div>
                   </div>
                   <span class="athlete-score">85%</span>
@@ -325,13 +518,13 @@
                 <!-- Mini Bar Chart -->
                 <div class="panel-title" style="margin-top:var(--sp-6);margin-bottom:var(--sp-2);">Weekly Training Load</div>
                 <div class="mini-chart" aria-label="Bar chart of weekly training load">
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:55%; height:55%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:72%; height:72%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:48%; height:48%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:90%; height:90%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:68%; height:68%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:80%; height:80%;"></div></div>
-                  <div class="mini-bar"><div class="mini-bar-fill" style="--bar-h:60%; height:60%;cursor:pointer;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:55%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:72%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:48%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:90%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:68%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:80%;"></div></div>
+                  <div class="mini-bar"><div class="mini-bar-fill" style="height:60%;"></div></div>
                 </div>
                 <div style="display:flex;justify-content:space-between;margin-top:var(--sp-2);">
                   <span style="font-size:var(--text-xs);color:var(--clr-text-muted);">Mon</span>
@@ -369,14 +562,13 @@
           </h2>
           <p class="cta-sub">
             Join over 1,200 athletes and coaches who are already training smarter with AthletiQ.
-            No credit card required. Cancel anytime.
           </p>
 
           <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap;">
-            <a href="pages/register.html" class="btn btn-primary btn-lg">
+            <a href="signup.html" class="btn btn-primary btn-lg">
               🚀 Create Free Account
             </a>
-            <a href="pages/login.html" class="btn btn-outline btn-lg">
+            <a href="login.html" class="btn btn-outline btn-lg">
               Already a member? Log In
             </a>
           </div>
@@ -439,12 +631,12 @@
 
         <!-- Product Links -->
         <div>
-          <p class=" footer-nav-group-title">Product</p>
+          <p class="footer-nav-group-title">Product</p>
           <ul class="footer-nav-list">
             <li><a href="#features">Features</a></li>
+            <li><a href="#roles">Who It's For</a></li>
             <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="pages/register.html">Get Started</a></li>
+            <li><a href="signup.html">Get Started</a></li>
           </ul>
         </div>
 
